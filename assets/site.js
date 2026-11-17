@@ -56,8 +56,8 @@ function writeBtn(s, cls = "", label = "Написать") {
   return `<div class="write ${cls}">
     <button class="btn" type="button" aria-expanded="false" aria-haspopup="true">${label} <span aria-hidden="true">↗</span></button>
     <div class="write-menu" role="menu">
-      <a role="menuitem" href="${esc(s.telegram_url)}" target="_blank" rel="noopener">${ICONS.telegram} Telegram <span class="mono">быстрее всего</span></a>
-      <a role="menuitem" href="${esc(s.instagram_url)}" target="_blank" rel="noopener">${ICONS.instagram} Instagram <span class="mono">direct</span></a>
+      <a role="menuitem" href="${esc(s.telegram_url)}" target="_blank" rel="noopener">${ICONS.telegram} Телеграм <span class="mono">быстрее всего</span></a>
+      <a role="menuitem" href="${esc(s.instagram_url)}" target="_blank" rel="noopener">${ICONS.instagram} Инстаграм <span class="mono">директ</span></a>
       <a role="menuitem" href="${esc(s.vk_url)}" target="_blank" rel="noopener">${ICONS.vk} ВКонтакте</a>
       <a role="menuitem" href="${tel(s.phone)}">${ICONS.phone} Позвонить</a>
     </div>
@@ -87,8 +87,8 @@ function footer(s) {
     <div><span class="wordmark">Vikkie</span><div class="mono muted">Viktoriia Karavaeva · photo</div></div>
     <nav aria-label="Контакты">
       <a href="${tel(s.phone)}">${esc(s.phone)}</a>
-      <a href="${esc(s.telegram_url)}" target="_blank" rel="noopener">Telegram ${esc(s.telegram_handle || "")}</a>
-      <a href="${esc(s.instagram_url)}" target="_blank" rel="noopener">Instagram ${esc(s.instagram_handle)}</a>
+      <a href="${esc(s.telegram_url)}" target="_blank" rel="noopener">Телеграм</a>
+      <a href="${esc(s.instagram_url)}" target="_blank" rel="noopener">Инстаграм</a>
       <a href="${esc(s.vk_url)}" target="_blank" rel="noopener">ВКонтакте</a>
     </nav>
     <div class="mono muted">© ${new Date().getFullYear()}</div>
@@ -152,10 +152,10 @@ function contactBlock(s) {
       <p>${esc(s.cta_text)}</p>
       ${writeBtn(s)}
       <div class="tabs">
-        <a href="${esc(s.telegram_url)}" target="_blank" rel="noopener">tg ${esc(s.telegram_handle || "")}</a>
-        <a href="${esc(s.instagram_url)}" target="_blank" rel="noopener">inst ${esc(s.instagram_handle)}</a>
+        <a href="${esc(s.telegram_url)}" target="_blank" rel="noopener" aria-label="Телеграм ${esc(s.telegram_handle || "")}">Телеграм</a>
+        <a href="${esc(s.instagram_url)}" target="_blank" rel="noopener" aria-label="Инстаграм ${esc(s.instagram_handle)}">Инстаграм</a>
         <a href="${esc(s.vk_url)}" target="_blank" rel="noopener">ВКонтакте</a>
-        <a href="${tel(s.phone)}">${esc(s.phone)}</a>
+        <a href="${tel(s.phone)}" aria-label="Позвонить ${esc(s.phone)}">${esc(s.phone)}</a>
       </div>
     </div>
   </div></section>`;
