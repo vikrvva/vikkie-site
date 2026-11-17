@@ -35,7 +35,8 @@ const CLIP = `<svg class="clip" viewBox="0 0 22 58" fill="none" stroke="currentC
 const ARROW = `<svg class="arrow" viewBox="0 0 60 50" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 40C14 10 38 6 54 20"/><path d="M46 13l8 7-10 3"/></svg>`;
 const ICONS = {
   telegram: `<svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.6c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.2-8.3c.4-.4-.1-.6-.6-.2L6.1 13.2l-4.9-1.5c-1.1-.3-1.1-1.1.2-1.6L20.5 2.8c.9-.3 1.7.2 1.4 1.5z"/></svg>`,
-  whatsapp: `<svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.5-.3z"/></svg>`,
+  vk: `<svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 18.5c-6.2 0-9.8-4.3-9.9-11.4h3.1c.1 5.2 2.4 7.4 4.2 7.9V7.1h2.9v4.5c1.8-.2 3.7-2.2 4.3-4.5h2.9a8.6 8.6 0 0 1-3.9 5.6 9 9 0 0 1 4.6 5.8h-3.2a5.6 5.6 0 0 0-4.7-4v4z"/></svg>`,
+  phone: `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>`,
   instagram: `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>`,
 };
 
@@ -56,8 +57,9 @@ function writeBtn(s, cls = "", label = "Написать") {
     <button class="btn" type="button" aria-expanded="false" aria-haspopup="true">${label} <span aria-hidden="true">↗</span></button>
     <div class="write-menu" role="menu">
       <a role="menuitem" href="${esc(s.telegram_url)}" target="_blank" rel="noopener">${ICONS.telegram} Telegram <span class="mono">быстрее всего</span></a>
-      <a role="menuitem" href="${esc(s.whatsapp_url)}" target="_blank" rel="noopener">${ICONS.whatsapp} WhatsApp</a>
       <a role="menuitem" href="${esc(s.instagram_url)}" target="_blank" rel="noopener">${ICONS.instagram} Instagram <span class="mono">direct</span></a>
+      <a role="menuitem" href="${esc(s.vk_url)}" target="_blank" rel="noopener">${ICONS.vk} ВКонтакте</a>
+      <a role="menuitem" href="${tel(s.phone)}">${ICONS.phone} Позвонить</a>
     </div>
   </div>`;
 }
@@ -74,7 +76,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") document.que
 function header(s, galleries, current) {
   const links = [...CATS.map(c => [c.url, c.short]), ["/about.html", "обо мне"], ["/#contact", "контакты"]];
   return `<header class="site-header"><div class="wrap">
-    <a class="logo" href="/" aria-label="VIKKIE — на главную"><span class="script">Vikkie</span>${STAR}</a>
+    <a class="logo" href="/" aria-label="VIKKIE — на главную"><span class="wordmark">Vikkie</span>${STAR}</a>
     <button class="burger mono" type="button" aria-label="Меню">меню</button>
     <nav class="nav" aria-label="Разделы">${links.map(([h, t]) => `<a href="${h}" ${h === current ? 'aria-current="page"' : ""}>${t}</a>`).join("")}</nav>
     ${writeBtn(s, "right", "Написать")}
@@ -82,12 +84,12 @@ function header(s, galleries, current) {
 }
 function footer(s) {
   return `<footer class="site-footer"><div class="wrap">
-    <div><span class="script">Vikkie</span><div class="mono muted">Viktoriia Karavaeva · photo</div></div>
-    <nav class="mono">
+    <div><span class="wordmark">Vikkie</span><div class="mono muted">Viktoriia Karavaeva · photo</div></div>
+    <nav aria-label="Контакты">
       <a href="${tel(s.phone)}">${esc(s.phone)}</a>
-      <a href="${esc(s.telegram_url)}" target="_blank" rel="noopener">Telegram</a>
-      <a href="${esc(s.vk_url)}" target="_blank" rel="noopener">VK</a>
+      <a href="${esc(s.telegram_url)}" target="_blank" rel="noopener">Telegram ${esc(s.telegram_handle || "")}</a>
       <a href="${esc(s.instagram_url)}" target="_blank" rel="noopener">Instagram ${esc(s.instagram_handle)}</a>
+      <a href="${esc(s.vk_url)}" target="_blank" rel="noopener">ВКонтакте</a>
     </nav>
     <div class="mono muted">© ${new Date().getFullYear()}</div>
   </div></footer>`;
@@ -150,9 +152,8 @@ function contactBlock(s) {
       <p>${esc(s.cta_text)}</p>
       ${writeBtn(s)}
       <div class="tabs">
-        <a href="${esc(s.telegram_url)}" target="_blank" rel="noopener">Telegram</a>
-        <a href="${esc(s.whatsapp_url)}" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="${esc(s.instagram_url)}" target="_blank" rel="noopener">${esc(s.instagram_handle)}</a>
+        <a href="${esc(s.telegram_url)}" target="_blank" rel="noopener">tg ${esc(s.telegram_handle || "")}</a>
+        <a href="${esc(s.instagram_url)}" target="_blank" rel="noopener">inst ${esc(s.instagram_handle)}</a>
         <a href="${esc(s.vk_url)}" target="_blank" rel="noopener">ВКонтакте</a>
         <a href="${tel(s.phone)}">${esc(s.phone)}</a>
       </div>
@@ -183,7 +184,7 @@ function renderHome(s, gs, about) {
     <span class="vlabel">portfolio ✶ ${new Date().getFullYear()}</span>
     <div class="hero-text fade-in">
       <div class="hero-kicker mono">${esc(s.hero_kicker)}</div>
-      <h1 class="hero-name"><span class="script">Vikkie</span><span class="full">Viktoriia Karavaeva</span></h1>
+      <h1 class="hero-name"><span class="wordmark">Vikkie</span><span class="full">Viktoriia Karavaeva</span></h1>
       <p class="hero-tagline">${esc(s.hero_tagline)}</p>
       <div class="hero-actions">${writeBtn(s)}<a class="btn ghost" href="#work">Смотреть работы</a></div>
     </div>
@@ -305,7 +306,7 @@ function renderPalettes() {
     <div class="page-title"><h1>Палитры</h1><span class="script">выбери свою</span></div>
     <p class="lead" style="margin-top:80px">Нажми на карточку — сайт откроется в этой палитре. Понравившуюся включи в админке: <b>Тексты и контакты → Главная страница и контакты → Акцентный цвет</b>.</p>
     <div class="swatches">${list.map(([k, n, d, c]) => `<a class="swatch" data-palette="${k}" href="/?palette=${k}">
-      <div class="chip"><span class="script">Vikkie</span></div>
+      <div class="chip"><span class="wordmark">Vikkie</span></div>
       <div class="row">${c.map(x => `<i style="background:${x}"></i>`).join("")}</div>
       <h3>${n}</h3><div class="mono muted" style="text-transform:none;letter-spacing:0">${d}</div>
       <div class="mono" style="margin-top:6px">${c.join(" · ")}</div></a>`).join("")}</div>

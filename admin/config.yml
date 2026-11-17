@@ -196,8 +196,8 @@ collections:
           - { label: "Заголовок призыва внизу", name: cta_title, widget: string }
           - { label: "Текст призыва внизу", name: cta_text, widget: text }
           - { label: "Телефон", name: phone, widget: string }
-          - { label: "Ссылка на Telegram", name: telegram_url, widget: string, hint: "Например https://t.me/ваш_ник" }
-          - { label: "Ссылка на WhatsApp", name: whatsapp_url, widget: string, hint: "https://wa.me/7XXXXXXXXXX — номер без плюса и пробелов" }
+          - { label: "Telegram (ник)", name: telegram_handle, widget: string, hint: "Например @tllmhn" }
+          - { label: "Ссылка на Telegram", name: telegram_url, widget: string, hint: "Например https://t.me/tllmhn" }
           - { label: "Instagram (ник)", name: instagram_handle, widget: string }
           - { label: "Ссылка на Instagram", name: instagram_url, widget: string }
           - { label: "Ссылка на ВКонтакте", name: vk_url, widget: string }
