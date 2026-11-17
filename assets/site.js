@@ -27,6 +27,8 @@ function src(path, w = 1000) {
   return `/.netlify/images?url=${encodeURIComponent(path)}&w=${w}&q=82`;
 }
 const tel = p => "tel:" + String(p || "").replace(/[^\d+]/g, "");
+/* последнее слово заголовка — курсивом в акцентном цвете */
+const italicLast = (t = "") => { const w = String(t).trim().split(/\s+/); if (w.length < 2) return esc(t); const last = w.pop(); return `${esc(w.join(" "))} <span class="script">${esc(last)}</span>`; };
 
 /* ── иконки ──────────────────────────────────────────── */
 const STAR = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.9 3.6 9.6 12 12-8.4 2.4-11.4 6.1-12 12-.6-5.9-3.6-9.6-12-12C8.4 9.6 11.4 5.9 12 0z"/></svg>`;
@@ -100,7 +102,7 @@ function polaroid(p, i, { href, tag, tape = true, button = false, w = 900 } = {}
   const r = ROT[i % ROT.length];
   const tapeCls = tape ? (i % 3 === 0 ? "tape" : i % 3 === 1 ? "tape pink" : "") : "";
   const inner = `${!tapeCls && tape ? CLIP : ""}
-    <img src="${src(p.image, w)}" alt="${esc(p.alt || "")}" loading="lazy">
+    <img src="${src(p.image, w)}" alt="${esc(p.alt || "")}" decoding="async">
     <span class="cap">${esc(p.caption || "")}</span>
     ${tag ? `<span class="cat-tag">${esc(tag)}</span>` : ""}`;
   const attrs = `class="polaroid hoverable ${tapeCls}" style="--r:${r}deg"`;
@@ -137,9 +139,9 @@ function processBlock(s) {
   return `<section class="process" aria-labelledby="proc-h">${rings(9)}
     <div class="wrap">
       <h2 class="h-big" id="proc-h">Как проходит <span class="script">съёмка</span></h2>
-      <div class="steps">${steps.map((st, i) => `<div class="step">
-        <div class="n"><b>${String(i + 1).padStart(2, "0")}</b> —</div>
-        <h3>${esc(st.title)}</h3><p>${esc(st.text)}</p>${ARROW}</div>`).join("")}</div>
+      <ol class="steps">${steps.map((st, i) => `<li class="step">
+        <div class="n"><b>${String(i + 1).padStart(2, "0")}</b>${i < steps.length - 1 ? `<span class="link" aria-hidden="true"></span>` : ""}</div>
+        <h3>${esc(st.title)}</h3><p>${esc(st.text)}</p></li>`).join("")}</ol>
     </div></section>`;
 }
 function contactBlock(s) {
@@ -181,7 +183,6 @@ function renderHome(s, gs, about) {
 
   return `
   <section class="hero"><div class="wrap">
-    <span class="vlabel">portfolio ✶ ${new Date().getFullYear()}</span>
     <div class="hero-text fade-in">
       <div class="hero-kicker mono">${esc(s.hero_kicker)}</div>
       <h1 class="hero-name"><span class="wordmark">Vikkie</span><span class="full">Viktoriia Karavaeva</span></h1>
@@ -189,30 +190,27 @@ function renderHome(s, gs, about) {
       <div class="hero-actions">${writeBtn(s)}<a class="btn ghost" href="#work">Смотреть работы</a></div>
     </div>
     <div class="hero-collage" aria-hidden="true">
-      <figure class="polaroid p1 tape">${`<img src="${src(heroPics[0].image, 700)}" alt="">`}<span class="cap">${esc(gs[0].tagline || "")}</span></figure>
-      <figure class="polaroid p2">${CLIP}<img src="${src(heroPics[1].image, 700)}" alt=""><span class="cap">${esc(gs[1].tagline || "")}</span></figure>
-      <figure class="polaroid p3 tape pink"><img src="${src(heroPics[2].image, 700)}" alt=""><span class="cap">${esc(gs[2].tagline || "")}</span></figure>
-      <div class="sticky">${esc(s.hero_sticker || "")}</div>
-      <span class="star spin" style="width:46px;top:0;right:12%">${STAR}</span>
-      <span class="star deep" style="width:26px;bottom:30%;left:-2%">${STAR5}</span>
-      <span class="star" style="width:20px;top:40%;left:40%">${STAR}</span>
+      <figure class="polaroid p1 tape"><img src="${src(heroPics[0].image, 700)}" alt=""><span class="cap">${esc(gs[0].tagline || "")}</span></figure>
+      <figure class="polaroid p2 tape pink"><img src="${src(heroPics[2].image, 700)}" alt=""><span class="cap">${esc(gs[2].tagline || "")}</span></figure>
+      <span class="star spin" style="width:40px;top:-14px;right:-6px">${STAR}</span>
+      <p class="hero-note">${esc(s.hero_sticker || "")}</p>
     </div>
   </div></section>
 
   <div class="marquee" aria-hidden="true"><div class="marquee-track">${marquee}${marquee}${marquee}${marquee}</div></div>
 
   <section class="intro section"><div class="wrap">
-    <div class="num">(01) — привет</div>
-    <div>
+    <div class="intro-head">
+      <div class="mono muted">знакомство</div>
       <h2 class="h-serif">${esc(s.intro_title)}</h2>
-      <p class="lead">${esc(s.intro_text)}</p>
     </div>
+    <p class="lead">${esc(s.intro_text)}</p>
   </div></section>
 
   <section class="section" id="work" style="padding-top:0"><div class="wrap">
     <div class="featured-head">
-      <h2 class="h-big">${esc(s.featured_title)} <span class="blank"></span><span class="script">работы</span></h2>
-      <span class="note">${esc(s.featured_note)} ↓</span>
+      <h2 class="h-big">${italicLast(s.featured_title)}</h2>
+      <span class="note">${esc(s.featured_note)}</span>
     </div>
     <div class="masonry">${mix.map((p, i) => polaroid(p, i, { href: p.g.url, tag: p.g.title, w: 800 })).join("")}</div>
   </div></section>
@@ -222,7 +220,7 @@ function renderHome(s, gs, about) {
   <section class="section" id="categories"><div class="wrap">
     <div class="cats-head">
       <h2 class="h-big">Что я <span class="script">снимаю</span></h2>
-      <span class="mono muted">(02) — выбери раздел</span>
+      <span class="mono muted">выбери раздел</span>
     </div>
     <div class="cats">${gs.map(g => `<a class="cat" href="${g.url}">
       <span class="tab">${esc(g.title)}</span>
@@ -313,12 +311,69 @@ function renderPalettes() {
   </div></section>`;
 }
 
+/* ── раскладка фото без пустот: каждое фото в самую короткую колонку ── */
+function masonry(el) {
+  const items = [...el.children].filter(n => !n.classList.contains("m-col"));
+  if (!items.length) return;
+  const colsFor = () => (innerWidth >= 1000 ? 3 : innerWidth >= 620 ? 2 : 1);
+  const ratio = it => { const i = it.querySelector("img"); return i && i.naturalWidth ? i.naturalHeight / i.naturalWidth : 1.25; };
+  let current = 0;
+  const layout = () => {
+    const n = colsFor();
+    if (n === current) return;
+    current = n;
+    el.querySelectorAll(".m-col").forEach(c => c.remove());
+    const cols = Array.from({ length: n }, () => { const c = document.createElement("div"); c.className = "m-col"; el.appendChild(c); return c; });
+    const h = new Array(n).fill(0);
+    items.forEach(it => {
+      const k = h.indexOf(Math.min(...h));
+      cols[k].appendChild(it);
+      h[k] += ratio(it) + 0.3; // ≈ рамка, подпись и отступ
+    });
+    el.classList.add("is-laid");
+    requestAnimationFrame(() => fillGaps(el, cols));
+  };
+  const imgs = items.map(it => it.querySelector("img")).filter(Boolean);
+  const loaded = Promise.all(imgs.map(i => i.complete ? null : new Promise(r => { i.addEventListener("load", r, { once: true }); i.addEventListener("error", r, { once: true }); })));
+  Promise.race([loaded, new Promise(r => setTimeout(r, 6000))]).then(layout);
+  addEventListener("resize", layout);
+}
+
+/* Низ сетки всегда ровный: зазор в короткой колонке занимает заметка-стикер */
+let SETTINGS = {};
+const FILL_NOTES = [
+  s => `<span class="fill-star">${STAR}</span><span class="fill-text">ещё больше кадров —<br>в инстаграме</span><span class="mono">${esc(s.instagram_handle || "")} ↗</span>`,
+  () => `<span class="fill-star">${STAR}</span><span class="fill-text">тут могла быть<br>ты ♡</span><span class="mono">записаться ↗</span>`,
+];
+function fillGaps(el, cols) {
+  el.querySelectorAll(".m-fill").forEach(f => f.remove());
+  if (cols.length < 2) return;
+  const hs = cols.map(c => c.getBoundingClientRect().height);
+  const max = Math.max(...hs);
+  let n = 0;
+  cols.forEach((c, i) => {
+    const gap = max - hs[i] - 42; // 42 — отступ между карточками
+    if (gap < 110) return;
+    const note = document.createElement("a");
+    const insta = n % 2 === 0;
+    note.className = "m-fill";
+    note.href = insta ? (SETTINGS.instagram_url || "#") : "#contact";
+    if (insta) { note.target = "_blank"; note.rel = "noopener"; }
+    note.style.height = Math.round(gap) + "px";
+    note.style.setProperty("--r", (n % 2 ? 1.5 : -1.5) + "deg");
+    note.innerHTML = FILL_NOTES[n % 2](SETTINGS);
+    c.appendChild(note);
+    n++;
+  });
+}
+
 /* ── запуск ──────────────────────────────────────────── */
 (async function main() {
   const app = $("#app");
   const page = document.body.dataset.page;
   try {
     const { settings: s, galleries: gs } = await loadCommon();
+    SETTINGS = s;
     applyPalette(s.palette);
     if (s.seo_description) { const m = $('meta[name="description"]'); if (m) m.content = s.seo_description; }
     let html = "", current = "/";
@@ -336,6 +391,7 @@ function renderPalettes() {
     else if (page === "palettes") html = renderPalettes();
     app.innerHTML = header(s, gs, current) + `<main>${html}</main>` + footer(s);
     app.removeAttribute("data-loading");
+    document.querySelectorAll(".masonry").forEach(masonry);
     if (page === "gallery") initLightbox(gs.find(x => x.key === document.body.dataset.cat).photos.filter(p => p.image));
     if (location.hash) { const t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
   } catch (err) {
