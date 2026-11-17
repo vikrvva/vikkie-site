@@ -1,0 +1,44 @@
+{
+    "title":  "Женский портрет",
+    "tagline":  "про тебя настоящую",
+    "description":  "Про тебя настоящую — без масок и зажатых плеч. Мягкий свет, воздух и немного смелости. Хочу, чтобы ты посмотрела на эти фото и подумала: «Это правда я? Какая же я красивая».",
+    "cover":  "/images/portrait/sample-1.svg",
+    "photos":  [
+                   {
+                       "image":  "/images/portrait/sample-1.svg",
+                       "alt":  "Женский портрет — пример 1",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/portrait/sample-2.svg",
+                       "alt":  "Женский портрет — пример 2",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/portrait/sample-3.svg",
+                       "alt":  "Женский портрет — пример 3",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/portrait/sample-4.svg",
+                       "alt":  "Женский портрет — пример 4",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/sample-5.svg",
+                       "alt":  "Женский портрет — пример 5",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/sample-6.svg",
+                       "alt":  "Женский портрет — пример 6",
+                       "caption":  "",
+                       "featured":  false
+                   }
+               ]
+}

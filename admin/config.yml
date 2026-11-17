@@ -1,0 +1,204 @@
+# ─────────────────────────────────────────────────────────────
+#  Настройки админки сайта VIKKIE (Decap CMS)
+#  Единственное, что нужно поменять один раз: строку repo ниже.
+# ─────────────────────────────────────────────────────────────
+
+backend:
+  name: github
+  repo: vikrvva/vikkie-site
+  branch: main
+  commit_messages:
+    create: "Добавлено: {{collection}} «{{slug}}»"
+    update: "Обновлено: {{collection}} «{{slug}}»"
+    delete: "Удалено: {{collection}} «{{slug}}»"
+    uploadMedia: "Загружено фото {{path}}"
+    deleteMedia: "Удалено фото {{path}}"
+
+# Запасной вариант входа через Netlify Identity + Git Gateway.
+# Чтобы включить: закомментируйте блок backend выше и раскомментируйте этот.
+# backend:
+#   name: git-gateway
+#   branch: main
+
+# Для проверки админки на своём компьютере (необязательно)
+local_backend: true
+
+locale: ru
+site_url: /
+display_url: /
+logo_url: /assets/admin-logo.svg
+
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+
+  # ── Женский портрет ─────────────────────────────────────────
+  - name: portrait
+    label: "📷 Женский портрет"
+    label_singular: "Галерея"
+    description: "Фото для страницы «Женский портрет». Новые фото сохраняются в папку images/portrait."
+    files:
+      - name: gallery
+        label: "Галерея «Женский портрет»"
+        file: content/galleries/portrait.json
+        fields:
+          - { label: "Название", name: title, widget: string }
+          - { label: "Рукописная подпись", name: tagline, widget: string, hint: "Короткая фраза, которая пишется «от руки»" }
+          - { label: "Описание категории", name: description, widget: text }
+          - { label: "Обложка (для главной)", name: cover, widget: image, media_folder: /images/portrait, public_folder: /images/portrait }
+          - label: "Фотографии"
+            name: photos
+            widget: list
+            label_singular: "фото"
+            summary: "{{fields.alt}}"
+            add_to_top: true
+            hint: "Нажмите «Добавить фото». Порядок можно менять перетаскиванием."
+            fields:
+              - { label: "Фото", name: image, widget: image, media_folder: /images/portrait, public_folder: /images/portrait }
+              - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
+              - { label: "Подпись «от руки» под фото", name: caption, widget: string, required: false }
+              - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
+
+  # ── Свадьбы ─────────────────────────────────────────────────
+  - name: wedding
+    label: "💍 Свадьбы"
+    label_singular: "Галерея"
+    description: "Фото для страницы «Свадьбы». Новые фото сохраняются в папку images/wedding."
+    files:
+      - name: gallery
+        label: "Галерея «Свадьбы»"
+        file: content/galleries/wedding.json
+        fields:
+          - { label: "Название", name: title, widget: string }
+          - { label: "Рукописная подпись", name: tagline, widget: string }
+          - { label: "Описание категории", name: description, widget: text }
+          - { label: "Обложка (для главной)", name: cover, widget: image, media_folder: /images/wedding, public_folder: /images/wedding }
+          - label: "Фотографии"
+            name: photos
+            widget: list
+            label_singular: "фото"
+            summary: "{{fields.alt}}"
+            add_to_top: true
+            hint: "Нажмите «Добавить фото». Порядок можно менять перетаскиванием."
+            fields:
+              - { label: "Фото", name: image, widget: image, media_folder: /images/wedding, public_folder: /images/wedding }
+              - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
+              - { label: "Подпись «от руки» под фото", name: caption, widget: string, required: false }
+              - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
+
+  # ── Love story ──────────────────────────────────────────────
+  - name: lovestory
+    label: "💌 Love story"
+    label_singular: "Галерея"
+    description: "Фото для страницы «Love story». Новые фото сохраняются в папку images/lovestory."
+    files:
+      - name: gallery
+        label: "Галерея «Love story»"
+        file: content/galleries/lovestory.json
+        fields:
+          - { label: "Название", name: title, widget: string }
+          - { label: "Рукописная подпись", name: tagline, widget: string }
+          - { label: "Описание категории", name: description, widget: text }
+          - { label: "Обложка (для главной)", name: cover, widget: image, media_folder: /images/lovestory, public_folder: /images/lovestory }
+          - label: "Фотографии"
+            name: photos
+            widget: list
+            label_singular: "фото"
+            summary: "{{fields.alt}}"
+            add_to_top: true
+            hint: "Нажмите «Добавить фото». Порядок можно менять перетаскиванием."
+            fields:
+              - { label: "Фото", name: image, widget: image, media_folder: /images/lovestory, public_folder: /images/lovestory }
+              - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
+              - { label: "Подпись «от руки» под фото", name: caption, widget: string, required: false }
+              - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
+
+  # ── Реклама ─────────────────────────────────────────────────
+  - name: commercial
+    label: "✨ Реклама"
+    label_singular: "Галерея"
+    description: "Фото для страницы «Реклама». Новые фото сохраняются в папку images/commercial."
+    files:
+      - name: gallery
+        label: "Галерея «Реклама»"
+        file: content/galleries/commercial.json
+        fields:
+          - { label: "Название", name: title, widget: string }
+          - { label: "Рукописная подпись", name: tagline, widget: string }
+          - { label: "Описание категории", name: description, widget: text }
+          - { label: "Обложка (для главной)", name: cover, widget: image, media_folder: /images/commercial, public_folder: /images/commercial }
+          - label: "Фотографии"
+            name: photos
+            widget: list
+            label_singular: "фото"
+            summary: "{{fields.alt}}"
+            add_to_top: true
+            hint: "Нажмите «Добавить фото». Порядок можно менять перетаскиванием."
+            fields:
+              - { label: "Фото", name: image, widget: image, media_folder: /images/commercial, public_folder: /images/commercial }
+              - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
+              - { label: "Подпись «от руки» под фото", name: caption, widget: string, required: false }
+              - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
+
+  # ── Тексты и контакты ───────────────────────────────────────
+  - name: pages
+    label: "✏️ Тексты и контакты"
+    files:
+      - name: about
+        label: "Обо мне"
+        file: content/about.json
+        media_folder: /images/site
+        public_folder: /images/site
+        fields:
+          - { label: "Заголовок", name: title, widget: string }
+          - { label: "Рукописное приветствие", name: hello, widget: string }
+          - { label: "Моё фото", name: photo, widget: image, media_folder: /images/site, public_folder: /images/site }
+          - { label: "Короткий текст (для главной)", name: short, widget: text }
+          - { label: "Полный текст (страница «Обо мне»)", name: body, widget: text, hint: "Пустая строка между абзацами = новый абзац" }
+          - label: "Факты обо мне (стикеры)"
+            name: facts
+            widget: list
+            label_singular: "факт"
+            summary: "{{fields.text}}"
+            fields:
+              - { label: "Текст", name: text, widget: string }
+
+      - name: settings
+        label: "Главная страница и контакты"
+        file: content/settings.json
+        fields:
+          - label: "Акцентный цвет сайта"
+            name: palette
+            widget: select
+            default: powder
+            options:
+              - { label: "Пудра + бордо", value: powder }
+              - { label: "Пудра + шалфей", value: sage }
+              - { label: "Малиновый", value: raspberry }
+              - { label: "Коралловый", value: coral }
+              - { label: "Лавандовый", value: lavender }
+          - { label: "Надпись над именем", name: hero_kicker, widget: string }
+          - { label: "Слоган на первом экране", name: hero_tagline, widget: text }
+          - { label: "Розовый стикер на первом экране", name: hero_sticker, widget: string }
+          - { label: "Заголовок вступления", name: intro_title, widget: string }
+          - { label: "Текст вступления", name: intro_text, widget: text }
+          - { label: "Заголовок блока «Любимые кадры»", name: featured_title, widget: string }
+          - { label: "Рукописная заметка к нему", name: featured_note, widget: string }
+          - label: "Как проходит съёмка (шаги)"
+            name: process
+            widget: list
+            label_singular: "шаг"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Название шага", name: title, widget: string }
+              - { label: "Описание", name: text, widget: text }
+          - { label: "Заголовок призыва внизу", name: cta_title, widget: string }
+          - { label: "Текст призыва внизу", name: cta_text, widget: text }
+          - { label: "Телефон", name: phone, widget: string }
+          - { label: "Ссылка на Telegram", name: telegram_url, widget: string, hint: "Например https://t.me/ваш_ник" }
+          - { label: "Ссылка на WhatsApp", name: whatsapp_url, widget: string, hint: "https://wa.me/7XXXXXXXXXX — номер без плюса и пробелов" }
+          - { label: "Instagram (ник)", name: instagram_handle, widget: string }
+          - { label: "Ссылка на Instagram", name: instagram_url, widget: string }
+          - { label: "Ссылка на ВКонтакте", name: vk_url, widget: string }
+          - { label: "Описание сайта для поисковиков", name: seo_description, widget: text }

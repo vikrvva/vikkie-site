@@ -1,0 +1,44 @@
+{
+    "title":  "Реклама",
+    "tagline":  "контент с характером",
+    "description":  "Съёмка для брендов, мастеров и магазинов: лукбуки, предметка, контент для соцсетей и сайта. Живо, стильно и с характером — так, чтобы ваш продукт хотелось купить с первого кадра.",
+    "cover":  "/images/commercial/sample-1.svg",
+    "photos":  [
+                   {
+                       "image":  "/images/commercial/sample-1.svg",
+                       "alt":  "Реклама — пример 1",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/commercial/sample-2.svg",
+                       "alt":  "Реклама — пример 2",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/commercial/sample-3.svg",
+                       "alt":  "Реклама — пример 3",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/commercial/sample-4.svg",
+                       "alt":  "Реклама — пример 4",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/commercial/sample-5.svg",
+                       "alt":  "Реклама — пример 5",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/commercial/sample-6.svg",
+                       "alt":  "Реклама — пример 6",
+                       "caption":  "",
+                       "featured":  false
+                   }
+               ]
+}

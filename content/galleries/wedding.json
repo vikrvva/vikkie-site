@@ -1,0 +1,44 @@
+{
+    "title":  "Свадьбы",
+    "tagline":  "ваш день целиком",
+    "description":  "Ваш день целиком: волнение утром, дрожащие руки на клятвах, смех гостей и танцы босиком в конце вечера. Я рядом весь день, но так незаметно, что вы забудете про камеру.",
+    "cover":  "/images/wedding/sample-1.svg",
+    "photos":  [
+                   {
+                       "image":  "/images/wedding/sample-1.svg",
+                       "alt":  "Свадьбы — пример 1",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/wedding/sample-2.svg",
+                       "alt":  "Свадьбы — пример 2",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/wedding/sample-3.svg",
+                       "alt":  "Свадьбы — пример 3",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/wedding/sample-4.svg",
+                       "alt":  "Свадьбы — пример 4",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/wedding/sample-5.svg",
+                       "alt":  "Свадьбы — пример 5",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/wedding/sample-6.svg",
+                       "alt":  "Свадьбы — пример 6",
+                       "caption":  "",
+                       "featured":  false
+                   }
+               ]
+}

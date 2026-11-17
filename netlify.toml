@@ -1,0 +1,15 @@
+# Сайт статический — сборка не нужна, Netlify просто публикует папку как есть.
+[build]
+  publish = "."
+
+# Тексты и списки фото всегда берутся свежие, чтобы правки из админки
+# появлялись сразу после публикации.
+[[headers]]
+  for = "/content/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

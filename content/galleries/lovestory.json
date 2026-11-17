@@ -1,0 +1,44 @@
+{
+    "title":  "Love story",
+    "tagline":  "про вас двоих",
+    "description":  "Двое, прогулка и ничего постановочного. Я снимаю то, как вы смотрите друг на друга, дурачитесь и обнимаетесь, когда думаете, что никто не видит.",
+    "cover":  "/images/lovestory/sample-1.svg",
+    "photos":  [
+                   {
+                       "image":  "/images/lovestory/sample-1.svg",
+                       "alt":  "Love story — пример 1",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/lovestory/sample-2.svg",
+                       "alt":  "Love story — пример 2",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/lovestory/sample-3.svg",
+                       "alt":  "Love story — пример 3",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/lovestory/sample-4.svg",
+                       "alt":  "Love story — пример 4",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/lovestory/sample-5.svg",
+                       "alt":  "Love story — пример 5",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/lovestory/sample-6.svg",
+                       "alt":  "Love story — пример 6",
+                       "caption":  "",
+                       "featured":  false
+                   }
+               ]
+}
