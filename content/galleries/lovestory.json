@@ -2,11 +2,11 @@
     "title":  "Love story",
     "tagline":  "про вас двоих",
     "description":  "Двое, прогулка и ничего постановочного. Я снимаю то, как вы смотрите друг на друга, дурачитесь и обнимаетесь, когда думаете, что никто не видит.",
-    "cover":  "/images/lovestory/ig-DfRtJstjdmg-1.jpg",
+    "cover":  "/images/lovestory/ls-door.jpg",
     "photos":  [
                    {
-                       "image":  "/images/lovestory/ig-DfRtJstjdmg-1.jpg",
-                       "alt":  "Пара у красной двери",
+                       "image":  "/images/lovestory/ls-door.jpg",
+                       "alt":  "Пара держится за руки у красной двери",
                        "caption":  "",
                        "featured":  true
                    },
@@ -17,14 +17,26 @@
                        "featured":  true
                    },
                    {
-                       "image":  "/images/lovestory/ig-DfRtJstjdmg-2.jpg",
-                       "alt":  "Поцелуй пары у старинного здания",
+                       "image":  "/images/lovestory/ls-walk.jpg",
+                       "alt":  "Пара гуляет по старой улице и смеётся",
                        "caption":  "",
                        "featured":  false
                    },
                    {
+                       "image":  "/images/lovestory/ls-kiss.jpg",
+                       "alt":  "Поцелуй пары в солнечном свете",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
                        "image":  "/images/lovestory/ig-DarinhBjWMo-3.jpg",
                        "alt":  "Пара смеётся в парке",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/lovestory/ls-hug.jpg",
+                       "alt":  "Объятия пары, снимок снизу",
                        "caption":  "",
                        "featured":  false
                    },
@@ -37,12 +49,6 @@
                    {
                        "image":  "/images/lovestory/ig-DarinhBjWMo-2.jpg",
                        "alt":  "Пара танцует в парке",
-                       "caption":  "",
-                       "featured":  false
-                   },
-                   {
-                       "image":  "/images/lovestory/ig-DfRtJstjdmg-3.jpg",
-                       "alt":  "Объятия пары на улице",
                        "caption":  "",
                        "featured":  false
                    },

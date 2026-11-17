@@ -2,41 +2,41 @@
     "title":  "Реклама",
     "tagline":  "контент с характером",
     "description":  "Съёмка для брендов, мастеров и магазинов: лукбуки, предметка, контент для соцсетей и сайта. Живо, стильно и с характером — так, чтобы ваш продукт хотелось купить с первого кадра.",
-    "cover":  "/images/commercial/sample-1.svg",
+    "cover":  "/images/commercial/ad-drink-1.jpg",
     "photos":  [
                    {
-                       "image":  "/images/commercial/sample-1.svg",
-                       "alt":  "Реклама — пример 1",
+                       "image":  "/images/commercial/ad-drink-1.jpg",
+                       "alt":  "Рекламная съёмка напитков: девушка в солнечных очках со стаканом",
                        "caption":  "",
                        "featured":  true
                    },
                    {
-                       "image":  "/images/commercial/sample-2.svg",
-                       "alt":  "Реклама — пример 2",
+                       "image":  "/images/commercial/ad-factory-3.jpg",
+                       "alt":  "Корпоративная съёмка на производстве: рабочие в касках",
                        "caption":  "",
                        "featured":  true
                    },
                    {
-                       "image":  "/images/commercial/sample-3.svg",
-                       "alt":  "Реклама — пример 3",
-                       "caption":  "",
-                       "featured":  true
-                   },
-                   {
-                       "image":  "/images/commercial/sample-4.svg",
-                       "alt":  "Реклама — пример 4",
+                       "image":  "/images/commercial/ad-drink-2.jpg",
+                       "alt":  "Рекламная съёмка напитков в кафе",
                        "caption":  "",
                        "featured":  false
                    },
                    {
-                       "image":  "/images/commercial/sample-5.svg",
-                       "alt":  "Реклама — пример 5",
+                       "image":  "/images/commercial/ad-factory-1.jpg",
+                       "alt":  "Рабочий собирает деталь в цеху",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/commercial/ad-factory-2.jpg",
+                       "alt":  "Чёрно-белый портрет рабочего с ключом",
                        "caption":  "",
                        "featured":  false
                    },
                    {
-                       "image":  "/images/commercial/sample-6.svg",
-                       "alt":  "Реклама — пример 6",
+                       "image":  "/images/commercial/ad-factory-4.jpg",
+                       "alt":  "Рабочий в каске улыбается",
                        "caption":  "",
                        "featured":  false
                    }
