@@ -5,6 +5,48 @@
     "cover":  "/images/commercial/ad-drink-1.jpg",
     "photos":  [
                    {
+                       "image":  "/images/commercial/drinkit-1.jpg",
+                       "alt":  "Drinkit: девушка с двумя напитками",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/commercial/drinkit-6.jpg",
+                       "alt":  "Drinkit: напитки крупным планом на фоне неба",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/commercial/drinkit-5.jpg",
+                       "alt":  "Drinkit: улыбка со стаканом",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/commercial/drinkit-3.jpg",
+                       "alt":  "Drinkit: девушка на скамье с кофе",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/commercial/drinkit-2.jpg",
+                       "alt":  "Drinkit: стакан в руке",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/commercial/drinkit-4.jpg",
+                       "alt":  "Drinkit: летний образ с кофе",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/commercial/drinkit-7.jpg",
+                       "alt":  "Drinkit: у витрины кофейни",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
                        "image":  "/images/commercial/ad-drink-1.jpg",
                        "alt":  "Рекламная съёмка напитков: девушка в солнечных очках со стаканом",
                        "caption":  "",

@@ -5,6 +5,30 @@
     "cover":  "/images/portrait/ig-Ddof1n9jc2M-1.jpg",
     "photos":  [
                    {
+                       "image":  "/images/portrait/leo-1.jpg",
+                       "alt":  "Девушка в леопардовой куртке у белой стены",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/portrait/leo-2.jpg",
+                       "alt":  "Две подруги переходят улицу",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/leo-3.jpg",
+                       "alt":  "Подруги у кованых ворот",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/leo-4.jpg",
+                       "alt":  "Портрет в очках и леопарде",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
                        "image":  "/images/portrait/ig-Ddof1n9jc2M-1.jpg",
                        "alt":  "Блондинка в чёрном в студии у окна",
                        "caption":  "",

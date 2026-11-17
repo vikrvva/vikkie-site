@@ -7,7 +7,7 @@ const CATS = [
   { key: "lovestory",  url: "/lovestory.html",  short: "love story" },
   { key: "commercial", url: "/commercial.html", short: "реклама" },
 ];
-const PALETTES = ["powder", "sage", "raspberry", "coral", "lavender"];
+const PALETTES = ["espresso", "olive", "powder", "sage", "raspberry", "coral", "lavender"];
 const ROT = [-3, 2.5, -1.5, 3.5, -2.5, 1.5, -4, 2];
 
 /* ── утилиты ─────────────────────────────────────────── */
@@ -47,7 +47,7 @@ const ICONS = {
 /* ── палитра ─────────────────────────────────────────── */
 function applyPalette(fromSettings) {
   const q = new URLSearchParams(location.search).get("palette");
-  const p = PALETTES.includes(q) ? q : (PALETTES.includes(fromSettings) ? fromSettings : "powder");
+  const p = PALETTES.includes(q) ? q : (PALETTES.includes(fromSettings) ? fromSettings : "espresso");
   document.documentElement.dataset.palette = p;
   if (!q) { try { localStorage.setItem("vikkie-palette", p); } catch (e) {} }
   if (q) document.querySelectorAll("a[href^='/']").forEach(a => {
@@ -164,6 +164,30 @@ function contactBlock(s) {
   </div></section>`;
 }
 
+/* серия-коллаж на главной: большая каллиграфия поверх разбросанных кадров */
+function spotlightBlock(s) {
+  const sp = s.spotlight; if (!sp || !(sp.photos || []).length) return "";
+  const ph = sp.photos.slice(0, 4);
+  return `<section class="spotlight section" aria-labelledby="sp-h"><div class="wrap">
+    <div class="sp-meta mono"><span>${esc(sp.kicker || "серия")}</span><span>${esc(sp.place || "")}</span></div>
+    <div class="sp-stage">
+      ${ph.map((p, i) => `<figure class="sp-ph sp-ph${i + 1}"><img src="${src(p.image, 900)}" alt="${esc(p.alt || "")}" loading="lazy"></figure>`).join("")}
+      <h2 class="sp-title" id="sp-h"><span class="sp-a">${esc(sp.title_a || "")}</span><span class="sp-b">${esc(sp.title_b || "")}</span></h2>
+      <span class="sp-cross c1"></span><span class="sp-cross c2"></span><span class="sp-cross c3"></span>
+    </div>
+    <div class="sp-foot"><p>${esc(sp.text || "")}</p>${sp.link ? `<a class="btn ghost" href="${esc(sp.link)}">${esc(sp.link_text || "Смотреть серию")} →</a>` : ""}</div>
+  </div></section>`;
+}
+/* с кем я работала */
+function clientsBlock(s) {
+  const cl = s.clients || []; if (!cl.length) return "";
+  return `<section class="clients section" aria-labelledby="cl-h"><div class="wrap">
+    <span class="mono muted">${esc(s.clients_kicker || "сотрудничество")}</span>
+    <h2 class="h-serif" id="cl-h">${italicLast(s.clients_title || "Со мной работали")}</h2>
+    <ul class="cl-list">${cl.map(c => `<li><span class="cl-name">${esc(c.name)}</span><span class="cl-note">${esc(c.note || "")}</span></li>`).join("")}</ul>
+  </div></section>`;
+}
+
 /* ── страницы ────────────────────────────────────────── */
 async function loadCommon() {
   const [settings, ...galleries] = await Promise.all([
@@ -225,7 +249,9 @@ function renderHome(s, gs, about) {
     <div class="masonry">${mix.map((p, i) => polaroid(p, i, { href: p.g.url, tag: p.g.title, w: 800 })).join("")}</div>
   </div></section>
 
+  ${spotlightBlock(s)}
   <section class="section" style="padding-top:20px"><div class="wrap">${aboutBlock(about, s, false)}</div></section>
+  ${clientsBlock(s)}
 
   <section class="section" id="categories"><div class="wrap">
     <div class="cats-head">
@@ -303,6 +329,8 @@ function initLightbox(photos) {
 
 function renderPalettes() {
   const list = [
+    ["espresso", "Эспрессо + терракота", "взрослая, тёплая, как плёнка", ["#C0714F", "#EADCC9", "#4A2A1F", "#D8C2A3"]],
+    ["olive", "Олива + шоколад", "спокойная, винтажная", ["#8C8A4E", "#E3E0CC", "#3E2E22", "#CFC6A8"]],
     ["powder", "Пудра + бордо", "нежно и по-взрослому, как бутик-журнал", ["#F2A7BF", "#FADDE6", "#7A1E3A", "#EFE2D2"]],
     ["sage", "Пудра + шалфей", "свежо и воздушно, как мудборд с лилиями", ["#F0A9C0", "#F9DEE7", "#4F6440", "#C9D6B0"]],
     ["raspberry", "Малиновый", "самый дерзкий и яркий", ["#E2336E", "#FBD3E0", "#A3123F", "#FFE6EE"]],

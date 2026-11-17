@@ -33,6 +33,54 @@
                        "alt":  "Детали: руки и лента",
                        "caption":  "",
                        "featured":  false
+                   },
+                   {
+                       "image":  "/images/wedding/wed-garden-3.jpg",
+                       "alt":  "Друзья жениха в мыльных пузырях",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/wedding/wed-garden-5.jpg",
+                       "alt":  "Подружки невесты ловят пузыри в саду",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/wedding/wed-garden-6.jpg",
+                       "alt":  "Смех и рукопожатие под дождём",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/wedding/wed-garden-2.jpg",
+                       "alt":  "Тост в зале с красными обоями",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/wedding/wed-garden-4.jpg",
+                       "alt":  "Двое друзей в саду",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/wedding/wed-garden-1.jpg",
+                       "alt":  "Гостьи за столом при свечах, чёрно-белое фото",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/wedding/wed-garden-7.jpg",
+                       "alt":  "Гостья в зелёном платье",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/wedding/wed-garden-8.jpg",
+                       "alt":  "Пара гостей в саду",
+                       "caption":  "",
+                       "featured":  false
                    }
                ]
 }

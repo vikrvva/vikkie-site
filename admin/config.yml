@@ -167,8 +167,10 @@ collections:
           - label: "Акцентный цвет сайта"
             name: palette
             widget: select
-            default: powder
+            default: espresso
             options:
+              - { label: "Эспрессо + терракота", value: espresso }
+              - { label: "Олива + шоколад", value: olive }
               - { label: "Пудра + бордо", value: powder }
               - { label: "Пудра + шалфей", value: sage }
               - { label: "Малиновый", value: raspberry }
@@ -189,6 +191,34 @@ collections:
             fields:
               - { label: "Название шага", name: title, widget: string }
               - { label: "Описание", name: text, widget: text }
+          - label: "Серия-коллаж на главной"
+            name: spotlight
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Надпись сверху", name: kicker, widget: string }
+              - { label: "Место", name: place, widget: string, required: false }
+              - { label: "Большое слово 1", name: title_a, widget: string }
+              - { label: "Большое слово 2", name: title_b, widget: string }
+              - { label: "Текст", name: text, widget: text }
+              - { label: "Ссылка кнопки", name: link, widget: string, required: false }
+              - { label: "Текст кнопки", name: link_text, widget: string, required: false }
+              - label: "Фото (до 4)"
+                name: photos
+                widget: list
+                max: 4
+                fields:
+                  - { label: "Фото", name: image, widget: image, media_folder: /images/portrait, public_folder: /images/portrait }
+                  - { label: "Описание", name: alt, widget: string, required: false }
+          - { label: "Сотрудничество: надпись", name: clients_kicker, widget: string }
+          - { label: "Сотрудничество: заголовок", name: clients_title, widget: string }
+          - label: "С кем работала"
+            name: clients
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Название", name: name, widget: string }
+              - { label: "Что снимала", name: note, widget: string, required: false }
           - { label: "Заголовок призыва внизу", name: cta_title, widget: string }
           - { label: "Текст призыва внизу", name: cta_text, widget: text }
           - { label: "Телефон", name: phone, widget: string }

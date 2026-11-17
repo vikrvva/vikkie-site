@@ -459,3 +459,51 @@ section { position: relative; }
 .swatch .chip .wm-v { color: var(--a-deep); }.hero-name { margin-top: clamp(40px, 6vw, 72px); }
 .hero-name .full { margin-top: clamp(20px, 2.4vw, 32px); }.hero-name .wm-v { transform: translateY(-.04em) rotate(-4deg); }
 .hero-name .full { margin-top: clamp(40px, 4.6vw, 64px); }.hero-name .full { margin-top: clamp(14px, 1.6vw, 22px); padding-left: var(--rest-x, 0px); }
+/* ── Палитры: «эспрессо» по умолчанию (слоновая кость, шоколад, терракота) ── */
+:root, [data-palette="espresso"] {
+  --paper: #F5EFE6; --paper-2: #FCF9F4; --ink: #1F1714; --muted: #6E625B; --line: rgba(31,23,20,.14);
+  --a: #C0714F; --a-soft: #EADCC9; --a-deep: #4A2A1F; --a-2: #D8C2A3;
+}
+[data-palette="olive"] { --paper: #F3F0E6; --a: #8C8A4E; --a-soft: #E3E0CC; --a-deep: #3E2E22; --a-2: #CFC6A8; }
+[data-palette="powder"] { --paper: #F7F1E8; --a: #F2A7BF; --a-soft: #FADDE6; --a-deep: #7A1E3A; --a-2: #EFE2D2; }
+::selection { background: var(--a); color: var(--paper-2); }
+.hero .b1 { opacity: .45; }
+.hero .b3 { opacity: .25; }
+
+/* ── Серия-коллаж: огромная каллиграфия поверх разбросанных кадров ── */
+.spotlight { overflow: hidden; }
+.sp-meta { display: flex; justify-content: space-between; gap: var(--s2); color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: var(--s2); }
+.sp-stage { position: relative; height: clamp(520px, 62vw, 820px); margin-top: var(--s4); }
+.sp-ph { position: absolute; margin: 0; background: var(--paper-2); padding: 8px; box-shadow: var(--shadow); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.sp-ph img { width: 100%; height: 100%; object-fit: cover; }
+.sp-ph:hover { transform: scale(1.04) rotate(0deg) !important; z-index: 6; }
+.sp-ph1 { width: 26%; aspect-ratio: 4/5; left: 2%; top: 6%; transform: rotate(-3deg); }
+.sp-ph2 { width: 22%; aspect-ratio: 4/5; left: 30%; top: 34%; transform: rotate(2deg); z-index: 2; }
+.sp-ph3 { width: 24%; aspect-ratio: 4/5; right: 22%; top: 2%; transform: rotate(-1.5deg); }
+.sp-ph4 { width: 20%; aspect-ratio: 4/5; right: 2%; top: 38%; transform: rotate(3deg); z-index: 2; }
+.sp-title { position: absolute; inset: 0; margin: 0; z-index: 4; pointer-events: none; font-weight: 400; color: var(--a-deep); mix-blend-mode: multiply; }
+.sp-title span { position: absolute; font-family: "Monsieur La Doulaise", "Playfair Display", cursive; line-height: .8; white-space: nowrap; }
+.sp-a { font-size: clamp(120px, 20vw, 290px); left: 14%; top: 4%; }
+.sp-b { font-size: clamp(120px, 20vw, 290px); right: 6%; bottom: 0; }
+.sp-cross { position: absolute; width: 22px; height: 22px; z-index: 5; }
+.sp-cross::before, .sp-cross::after { content: ""; position: absolute; background: var(--ink); }
+.sp-cross::before { left: 50%; top: 0; bottom: 0; width: 1px; } .sp-cross::after { top: 50%; left: 0; right: 0; height: 1px; }
+.sp-cross.c1 { left: 0; top: 50%; } .sp-cross.c2 { right: 0; top: 0; } .sp-cross.c3 { left: 56%; bottom: 4%; }
+.sp-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--s3); border-top: 1px solid var(--line); padding-top: var(--s3); margin-top: var(--s4); }
+.sp-foot p { margin: 0; max-width: 52ch; color: var(--muted); }
+@media (max-width: 760px) {
+  .sp-stage { height: auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2); padding: 70px 0 60px; }
+  .sp-ph { position: relative; inset: auto; width: auto !important; }
+  .sp-a { left: 0; top: 0; font-size: 96px; } .sp-b { right: 0; bottom: 0; font-size: 96px; }
+}
+
+/* ── Сотрудничество ── */
+.clients .wrap { max-width: 980px; }
+.clients .mono { display: block; margin-bottom: var(--s2); }
+.cl-list { list-style: none; margin: var(--s5) 0 0; padding: 0; border-top: 1px solid var(--ink); }
+.cl-list li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s3); align-items: baseline; padding: var(--s3) 0; border-bottom: 1px solid var(--line); transition: padding .3s, color .3s; }
+.cl-list li:hover { padding-left: var(--s2); color: var(--a-deep); }
+.cl-name { font-family: var(--f-serif); font-size: clamp(32px, 4.6vw, 60px); line-height: 1; letter-spacing: -.02em; }
+.cl-list li:nth-child(even) .cl-name { font-style: italic; }
+.cl-note { color: var(--muted); font-size: 15px; }
+@media (max-width: 600px) { .cl-list li { grid-template-columns: 1fr; gap: 6px; } }
