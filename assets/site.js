@@ -30,6 +30,8 @@ const tel = p => "tel:" + String(p || "").replace(/[^\d+]/g, "");
 /* последнее слово заголовка — курсивом в акцентном цвете */
 const italicLast = (t = "") => { const w = String(t).trim().split(/\s+/); if (w.length < 2) return esc(t); const last = w.pop(); return `${esc(w.join(" "))} <span class="script">${esc(last)}</span>`; };
 
+const WORDMARK = `<span class="wordmark" aria-label="Vikkie"><span class="wm-v">V</span><span class="wm-rest">ikkie</span></span>`;
+
 /* ── иконки ──────────────────────────────────────────── */
 const STAR = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.9 3.6 9.6 12 12-8.4 2.4-11.4 6.1-12 12-.6-5.9-3.6-9.6-12-12C8.4 9.6 11.4 5.9 12 0z"/></svg>`;
 const STAR5 = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5l3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.3l-6.3 3.6 1.5-7.1L1.8 8.9 9 8.1z"/></svg>`;
@@ -78,7 +80,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") document.que
 function header(s, galleries, current) {
   const links = [...CATS.map(c => [c.url, c.short]), ["/about.html", "обо мне"], ["/#contact", "контакты"]];
   return `<header class="site-header"><div class="wrap">
-    <a class="logo" href="/" aria-label="VIKKIE — на главную"><span class="wordmark">Vikkie</span>${STAR}</a>
+    <a class="logo" href="/" aria-label="VIKKIE — на главную">${WORDMARK}${STAR}</a>
     <button class="burger mono" type="button" aria-label="Меню">меню</button>
     <nav class="nav" aria-label="Разделы">${links.map(([h, t]) => `<a href="${h}" ${h === current ? 'aria-current="page"' : ""}>${t}</a>`).join("")}</nav>
     ${writeBtn(s, "right", "Написать")}
@@ -86,7 +88,7 @@ function header(s, galleries, current) {
 }
 function footer(s) {
   return `<footer class="site-footer"><div class="wrap">
-    <div><span class="wordmark">Vikkie</span><div class="mono muted">Viktoriia Karavaeva · photo</div></div>
+    <div>${WORDMARK}<div class="mono muted">Viktoriia Karavaeva · photo</div></div>
     <nav aria-label="Контакты">
       <a href="${tel(s.phone)}">${esc(s.phone)}</a>
       <a href="${esc(s.telegram_url)}" target="_blank" rel="noopener">Телеграм</a>
@@ -181,7 +183,7 @@ function renderHome(s, gs, about) {
   const deck = [];
   for (let i = 0; i < 2; i++) gs.forEach(g => { const p = (g.photos.filter(x => x.featured)[i] || g.photos[i]); if (p && p.image) deck.push({ image: p.image, g }); });
   const marquee = gs.map(g => `<span>${esc(g.title)}</span>`).join("");
-  const letters = [..."Vikkie"].map(c => `<span class="ch">${c}</span>`).join("");
+  const letters = [..."ikkie"].map(c => `<span class="ch">${c}</span>`).join("");
   const words = String(s.hero_words || "нежно, смело, живо, с любовью").split(",").map(w => w.trim()).filter(Boolean);
 
   return `
@@ -190,7 +192,7 @@ function renderHome(s, gs, about) {
     <div class="wrap">
     <div class="hero-text fade-in">
       <div class="hero-kicker mono"><i></i>${esc(s.hero_kicker)} · запись открыта</div>
-      <h1 class="hero-name"><span class="wordmark" aria-label="Vikkie">${letters}</span><span class="full">Viktoriia Karavaeva</span></h1>
+      <h1 class="hero-name"><span class="wordmark" aria-label="Vikkie"><span class="wm-v">V</span><span class="wm-rest">${letters}</span></span><span class="full">Viktoriia Karavaeva</span></h1>
       <p class="hero-rot">Снимаю <span class="word" data-words="${esc(words.join("|"))}">${esc(words[0] || "")}</span></p>
       <p class="hero-tagline">${esc(s.hero_tagline)}</p>
       <div class="hero-actions">${writeBtn(s)}<a class="btn ghost" href="#work">Смотреть работы</a></div>
@@ -312,7 +314,7 @@ function renderPalettes() {
     <div class="page-title"><h1>Палитры</h1><span class="script">выбери свою</span></div>
     <p class="lead" style="margin-top:80px">Нажми на карточку — сайт откроется в этой палитре. Понравившуюся включи в админке: <b>Тексты и контакты → Главная страница и контакты → Акцентный цвет</b>.</p>
     <div class="swatches">${list.map(([k, n, d, c]) => `<a class="swatch" data-palette="${k}" href="/?palette=${k}">
-      <div class="chip"><span class="wordmark">Vikkie</span></div>
+      <div class="chip">${WORDMARK}</div>
       <div class="row">${c.map(x => `<i style="background:${x}"></i>`).join("")}</div>
       <h3>${n}</h3><div class="mono muted" style="text-transform:none;letter-spacing:0">${d}</div>
       <div class="mono" style="margin-top:6px">${c.join(" · ")}</div></a>`).join("")}</div>
@@ -377,6 +379,10 @@ function fillGaps(el, cols) {
 
 /* ── интерактив первого экрана ───────────────────────── */
 function initHero() {
+  // имя под «ikkie», справа от петли каллиграфической V
+  const rest = $(".hero-name .wm-rest"), nm = $(".hero-name");
+  const placeName = () => { if (rest && nm) nm.style.setProperty("--rest-x", Math.max(0, rest.getBoundingClientRect().left - nm.getBoundingClientRect().left) + "px"); };
+  placeName(); addEventListener("resize", placeName); document.fonts && document.fonts.ready.then(placeName);
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   // меняющееся слово «Снимаю …»
   const w = $(".hero-rot .word");

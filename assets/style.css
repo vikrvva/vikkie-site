@@ -440,3 +440,22 @@ section { position: relative; }
 .fade-in { animation: fade .7s ease both; }
 @keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ── Логотип-микс: каллиграфическая «V» + смелый курсив Playfair ── */
+.wordmark { display: inline-flex; align-items: baseline; white-space: nowrap; }
+.wm-v {
+  font-family: "Monsieur La Doulaise", "Playfair Display", cursive; font-style: normal; font-weight: 400;
+  font-size: 1.9em; line-height: .5; color: var(--a);
+  margin-right: -.26em; position: relative; z-index: 0; transform: translateY(.06em) rotate(-4deg);
+  text-shadow: .02em .02em 0 color-mix(in srgb, var(--a-deep) 25%, transparent);
+}
+.wm-rest { position: relative; z-index: 1; font-family: var(--f-serif); font-style: italic; font-weight: 500; color: var(--a-deep); letter-spacing: -.035em; }
+.hero-name .wordmark { padding-left: .12em; }
+.hero-name .wm-v { font-size: 2em; }
+.logo .wordmark { font-size: 26px; }
+.logo .wm-v { font-size: 2.1em; margin-right: -.3em; }
+.site-footer .wm-v { margin-right: -.3em; }
+.swatch .chip .wm-rest { color: var(--paper-2); }
+.swatch .chip .wm-v { color: var(--a-deep); }.hero-name { margin-top: clamp(40px, 6vw, 72px); }
+.hero-name .full { margin-top: clamp(20px, 2.4vw, 32px); }.hero-name .wm-v { transform: translateY(-.04em) rotate(-4deg); }
+.hero-name .full { margin-top: clamp(40px, 4.6vw, 64px); }.hero-name .full { margin-top: clamp(14px, 1.6vw, 22px); padding-left: var(--rest-x, 0px); }
