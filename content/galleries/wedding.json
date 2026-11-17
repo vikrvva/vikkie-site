@@ -2,41 +2,35 @@
     "title":  "Свадьбы",
     "tagline":  "ваш день целиком",
     "description":  "Ваш день целиком: волнение утром, дрожащие руки на клятвах, смех гостей и танцы босиком в конце вечера. Я рядом весь день, но так незаметно, что вы забудете про камеру.",
-    "cover":  "/images/wedding/sample-1.svg",
+    "cover":  "/images/wedding/ig-Dc__wMTjXq_-1.jpg",
     "photos":  [
                    {
-                       "image":  "/images/wedding/sample-1.svg",
-                       "alt":  "Свадьбы — пример 1",
+                       "image":  "/images/wedding/ig-Dc__wMTjXq_-1.jpg",
+                       "alt":  "Жених и невеста у храма, чёрно-белое фото",
                        "caption":  "",
                        "featured":  true
                    },
                    {
-                       "image":  "/images/wedding/sample-2.svg",
-                       "alt":  "Свадьбы — пример 2",
+                       "image":  "/images/wedding/ig-Dc__wMTjXq_-2.jpg",
+                       "alt":  "Поцелуй под фатой с букетом",
                        "caption":  "",
                        "featured":  true
                    },
                    {
-                       "image":  "/images/wedding/sample-3.svg",
-                       "alt":  "Свадьбы — пример 3",
-                       "caption":  "",
-                       "featured":  true
-                   },
-                   {
-                       "image":  "/images/wedding/sample-4.svg",
-                       "alt":  "Свадьбы — пример 4",
+                       "image":  "/images/wedding/ig-Dc__wMTjXq_-3.jpg",
+                       "alt":  "Молодожёны среди цветов",
                        "caption":  "",
                        "featured":  false
                    },
                    {
-                       "image":  "/images/wedding/sample-5.svg",
-                       "alt":  "Свадьбы — пример 5",
+                       "image":  "/images/wedding/ig-Dc__wMTjXq_-5.jpg",
+                       "alt":  "Молодожёны и гости у ЗАГСа",
                        "caption":  "",
                        "featured":  false
                    },
                    {
-                       "image":  "/images/wedding/sample-6.svg",
-                       "alt":  "Свадьбы — пример 6",
+                       "image":  "/images/wedding/ig-Dc__wMTjXq_-4.jpg",
+                       "alt":  "Детали: руки и лента",
                        "caption":  "",
                        "featured":  false
                    }

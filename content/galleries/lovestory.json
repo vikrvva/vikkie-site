@@ -2,41 +2,53 @@
     "title":  "Love story",
     "tagline":  "про вас двоих",
     "description":  "Двое, прогулка и ничего постановочного. Я снимаю то, как вы смотрите друг на друга, дурачитесь и обнимаетесь, когда думаете, что никто не видит.",
-    "cover":  "/images/lovestory/sample-1.svg",
+    "cover":  "/images/lovestory/ig-DfRtJstjdmg-1.jpg",
     "photos":  [
                    {
-                       "image":  "/images/lovestory/sample-1.svg",
-                       "alt":  "Love story — пример 1",
+                       "image":  "/images/lovestory/ig-DfRtJstjdmg-1.jpg",
+                       "alt":  "Пара у красной двери",
                        "caption":  "",
                        "featured":  true
                    },
                    {
-                       "image":  "/images/lovestory/sample-2.svg",
-                       "alt":  "Love story — пример 2",
+                       "image":  "/images/lovestory/ig-DarinhBjWMo-1.jpg",
+                       "alt":  "Пара целуется на скамейке",
                        "caption":  "",
                        "featured":  true
                    },
                    {
-                       "image":  "/images/lovestory/sample-3.svg",
-                       "alt":  "Love story — пример 3",
-                       "caption":  "",
-                       "featured":  true
-                   },
-                   {
-                       "image":  "/images/lovestory/sample-4.svg",
-                       "alt":  "Love story — пример 4",
+                       "image":  "/images/lovestory/ig-DfRtJstjdmg-2.jpg",
+                       "alt":  "Поцелуй пары у старинного здания",
                        "caption":  "",
                        "featured":  false
                    },
                    {
-                       "image":  "/images/lovestory/sample-5.svg",
-                       "alt":  "Love story — пример 5",
+                       "image":  "/images/lovestory/ig-DarinhBjWMo-3.jpg",
+                       "alt":  "Пара смеётся в парке",
                        "caption":  "",
                        "featured":  false
                    },
                    {
-                       "image":  "/images/lovestory/sample-6.svg",
-                       "alt":  "Love story — пример 6",
+                       "image":  "/images/lovestory/ig-DfRtJstjdmg-4.jpg",
+                       "alt":  "Девушка улыбается в объятиях",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/lovestory/ig-DarinhBjWMo-2.jpg",
+                       "alt":  "Пара танцует в парке",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/lovestory/ig-DfRtJstjdmg-3.jpg",
+                       "alt":  "Объятия пары на улице",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/lovestory/ig-DarinhBjWMo-4.jpg",
+                       "alt":  "Пара в движении",
                        "caption":  "",
                        "featured":  false
                    }

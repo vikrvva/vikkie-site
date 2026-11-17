@@ -2,41 +2,131 @@
     "title":  "Женский портрет",
     "tagline":  "про тебя настоящую",
     "description":  "Про тебя настоящую — без масок и зажатых плеч. Мягкий свет, воздух и немного смелости. Хочу, чтобы ты посмотрела на эти фото и подумала: «Это правда я? Какая же я красивая».",
-    "cover":  "/images/portrait/sample-1.svg",
+    "cover":  "/images/portrait/ig-Ddof1n9jc2M-1.jpg",
     "photos":  [
                    {
-                       "image":  "/images/portrait/sample-1.svg",
-                       "alt":  "Женский портрет — пример 1",
+                       "image":  "/images/portrait/ig-Ddof1n9jc2M-1.jpg",
+                       "alt":  "Блондинка в чёрном в студии у окна",
+                       "caption":  "студийный свет",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/portrait/ig-Deva5dTDToE-1.jpg",
+                       "alt":  "Портрет девушки с каре в куртке на закате",
+                       "caption":  "золотой час",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/portrait/ig-Dd8uDbwjQZg-2.jpg",
+                       "alt":  "Девушка в чёрном платье у фонтана",
                        "caption":  "",
                        "featured":  true
                    },
                    {
-                       "image":  "/images/portrait/sample-2.svg",
-                       "alt":  "Женский портрет — пример 2",
+                       "image":  "/images/portrait/ig-Ddg1-dWDfzC-1.jpg",
+                       "alt":  "Брюнетка в белом платье среди сухой травы",
                        "caption":  "",
                        "featured":  true
                    },
                    {
-                       "image":  "/images/portrait/sample-3.svg",
-                       "alt":  "Женский портрет — пример 3",
+                       "image":  "/images/portrait/ig-DaejvX0DSfG-1.jpg",
+                       "alt":  "Крупный портрет с пирсингом и красными губами",
                        "caption":  "",
                        "featured":  true
                    },
                    {
-                       "image":  "/images/portrait/sample-4.svg",
-                       "alt":  "Женский портрет — пример 4",
+                       "image":  "/images/portrait/ig-DL9pb8Qt8O1-1.jpg",
+                       "alt":  "Девушка у машины, ночной город",
+                       "caption":  "ночной город",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/portrait/ig-DbaMXrnjb4T-3.jpg",
+                       "alt":  "Портрет блондинки крупным планом",
                        "caption":  "",
                        "featured":  false
                    },
                    {
-                       "image":  "/images/portrait/sample-5.svg",
-                       "alt":  "Женский портрет — пример 5",
+                       "image":  "/images/portrait/ig-DVKLcGUjBSq-2.jpg",
+                       "alt":  "Студийный портрет в пиджаке",
                        "caption":  "",
                        "featured":  false
                    },
                    {
-                       "image":  "/images/portrait/sample-6.svg",
-                       "alt":  "Женский портрет — пример 6",
+                       "image":  "/images/portrait/ig-Ddof1n9jc2M-2.jpg",
+                       "alt":  "Блондинка в студии у ширмы",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-Deva5dTDToE-2.jpg",
+                       "alt":  "Девушка с каре, тёплый свет",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-Dd8uDbwjQZg-1.jpg",
+                       "alt":  "Девушка у фонтана",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-Ddg1-dWDfzC-2.jpg",
+                       "alt":  "Девушка в белом платке",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-DaejvX0DSfG-3.jpg",
+                       "alt":  "Студийный портрет в чёрном",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-DL9pb8Qt8O1-3.jpg",
+                       "alt":  "Девушка в красном платье ночью",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-DbaMXrnjb4T-2.jpg",
+                       "alt":  "Девушка в белом с котом",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-Deva5dTDToE-3.jpg",
+                       "alt":  "Девушка у кованой решётки",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-Dd8uDbwjQZg-3.jpg",
+                       "alt":  "Девушка в парке у фонаря",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-Ddg1-dWDfzC-3.jpg",
+                       "alt":  "Портрет в белом, тёплый свет",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-Ddof1n9jc2M-3.jpg",
+                       "alt":  "Блондинка на полу студии",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-DaejvX0DSfG-2.jpg",
+                       "alt":  "Девушка в чёрном у светлой стены",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/portrait/ig-DbaMXrnjb4T-1.jpg",
+                       "alt":  "Блондинка в поле",
                        "caption":  "",
                        "featured":  false
                    }
