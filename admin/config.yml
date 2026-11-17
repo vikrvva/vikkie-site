@@ -57,7 +57,6 @@ collections:
             fields:
               - { label: "Фото", name: image, widget: image, media_folder: /images/portrait, public_folder: /images/portrait }
               - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
-              - { label: "Подпись «от руки» под фото", name: caption, widget: string, required: false }
               - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
 
   # ── Свадьбы ─────────────────────────────────────────────────
@@ -84,7 +83,6 @@ collections:
             fields:
               - { label: "Фото", name: image, widget: image, media_folder: /images/wedding, public_folder: /images/wedding }
               - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
-              - { label: "Подпись «от руки» под фото", name: caption, widget: string, required: false }
               - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
 
   # ── Love story ──────────────────────────────────────────────
@@ -111,7 +109,6 @@ collections:
             fields:
               - { label: "Фото", name: image, widget: image, media_folder: /images/lovestory, public_folder: /images/lovestory }
               - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
-              - { label: "Подпись «от руки» под фото", name: caption, widget: string, required: false }
               - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
 
   # ── Реклама ─────────────────────────────────────────────────
@@ -138,7 +135,6 @@ collections:
             fields:
               - { label: "Фото", name: image, widget: image, media_folder: /images/commercial, public_folder: /images/commercial }
               - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
-              - { label: "Подпись «от руки» под фото", name: caption, widget: string, required: false }
               - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
 
   # ── Тексты и контакты ───────────────────────────────────────
@@ -180,7 +176,7 @@ collections:
               - { label: "Лавандовый", value: lavender }
           - { label: "Надпись над именем", name: hero_kicker, widget: string }
           - { label: "Слоган на первом экране", name: hero_tagline, widget: text }
-          - { label: "Розовый стикер на первом экране", name: hero_sticker, widget: string }
+          - { label: "Слова после «Снимаю…» (через запятую)", name: hero_words, widget: string, hint: "Например: нежно, смело, живо, с любовью" }
           - { label: "Заголовок вступления", name: intro_title, widget: string }
           - { label: "Текст вступления", name: intro_text, widget: text }
           - { label: "Заголовок блока «Любимые кадры»", name: featured_title, widget: string }

@@ -103,7 +103,6 @@ function polaroid(p, i, { href, tag, tape = true, button = false, w = 900 } = {}
   const tapeCls = tape ? (i % 3 === 0 ? "tape" : i % 3 === 1 ? "tape pink" : "") : "";
   const inner = `${!tapeCls && tape ? CLIP : ""}
     <img src="${src(p.image, w)}" alt="${esc(p.alt || "")}" decoding="async">
-    <span class="cap">${esc(p.caption || "")}</span>
     ${tag ? `<span class="cat-tag">${esc(tag)}</span>` : ""}`;
   const attrs = `class="polaroid hoverable ${tapeCls}" style="--r:${r}deg"`;
   if (href) return `<a ${attrs} href="${href}">${inner}</a>`;
@@ -127,7 +126,7 @@ function aboutBlock(a, s, full) {
         ${full ? writeBtn(s, "up") : `<a class="btn ghost" href="/about.html">Читать полностью ↗</a>`}
       </div>
       <div class="about-photo">
-        <figure class="polaroid" style="--r:4deg">${CLIP}<img src="${src(a.photo, 800)}" alt="Виктория Караваева"><span class="cap">это я ♡</span></figure>
+        <figure class="polaroid" style="--r:4deg">${CLIP}<img src="${src(a.photo, 800)}" alt="Виктория Караваева"></figure>
         <span class="star deep" style="width:30px;bottom:-12px;left:-14px">${STAR5}</span>
       </div>
     </div>
@@ -178,32 +177,41 @@ function renderHome(s, gs, about) {
   const pools = gs.map(g => g.photos.filter(p => p.featured && p.image).map(p => ({ ...p, g })));
   const mix = [];
   for (let i = 0; pools.some(p => p[i]); i++) pools.forEach(p => p[i] && mix.push(p[i]));
-  const heroPics = [gs[0], gs[1], gs[2]].map((g, i) => (g.photos[0] || { image: g.cover }));
+  // колода на первом экране: по 2 лучших кадра из каждой категории, вперемешку
+  const deck = [];
+  for (let i = 0; i < 2; i++) gs.forEach(g => { const p = (g.photos.filter(x => x.featured)[i] || g.photos[i]); if (p && p.image) deck.push({ image: p.image, g }); });
   const marquee = gs.map(g => `<span>${esc(g.title)}</span>`).join("");
+  const letters = [..."Vikkie"].map(c => `<span class="ch">${c}</span>`).join("");
+  const words = String(s.hero_words || "нежно, смело, живо, с любовью").split(",").map(w => w.trim()).filter(Boolean);
 
   return `
-  <section class="hero"><div class="wrap">
+  <section class="hero">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+    <div class="wrap">
     <div class="hero-text fade-in">
-      <div class="hero-kicker mono">${esc(s.hero_kicker)}</div>
-      <h1 class="hero-name"><span class="wordmark">Vikkie</span><span class="full">Viktoriia Karavaeva</span></h1>
+      <div class="hero-kicker mono"><i></i>${esc(s.hero_kicker)} · запись открыта</div>
+      <h1 class="hero-name"><span class="wordmark" aria-label="Vikkie">${letters}</span><span class="full">Viktoriia Karavaeva</span></h1>
+      <p class="hero-rot">Снимаю <span class="word" data-words="${esc(words.join("|"))}">${esc(words[0] || "")}</span></p>
       <p class="hero-tagline">${esc(s.hero_tagline)}</p>
       <div class="hero-actions">${writeBtn(s)}<a class="btn ghost" href="#work">Смотреть работы</a></div>
     </div>
-    <div class="hero-collage" aria-hidden="true">
-      <figure class="polaroid p1 tape"><img src="${src(heroPics[0].image, 700)}" alt=""><span class="cap">${esc(gs[0].tagline || "")}</span></figure>
-      <figure class="polaroid p2 tape pink"><img src="${src(heroPics[2].image, 700)}" alt=""><span class="cap">${esc(gs[2].tagline || "")}</span></figure>
-      <span class="star spin" style="width:40px;top:-14px;right:-6px">${STAR}</span>
-      <p class="hero-note">${esc(s.hero_sticker || "")}</p>
+    <div class="deck-wrap">
+      <div class="deck" role="button" tabindex="0" aria-label="Листать фотографии">
+        ${deck.map((d, i) => `<figure class="card ${i % 2 ? "tape pink" : "tape"}" data-pos="${i}" data-url="${d.g.url}">
+          <img src="${src(d.image, 800)}" alt="${esc(d.g.title)}"><span class="tag">${esc(d.g.title)}</span><span class="num mono">${String(i + 1).padStart(2, "0")} / ${String(deck.length).padStart(2, "0")}</span></figure>`).join("")}
+      </div>
+      <div class="deck-hint"><button type="button" class="deck-next" aria-label="Следующее фото">→</button><span class="mono muted">листай кадры</span></div>
+      <span class="spark" style="width:34px;height:34px;top:-10px;right:4%">${STAR}</span>
+      <span class="spark" style="width:20px;height:20px;bottom:22%;left:0;animation-delay:1s">${STAR}</span>
+      <span class="spark" style="width:16px;height:16px;top:38%;right:-2%;animation-delay:2s">${STAR}</span>
     </div>
   </div></section>
 
   <div class="marquee" aria-hidden="true"><div class="marquee-track">${marquee}${marquee}${marquee}${marquee}</div></div>
 
   <section class="intro section"><div class="wrap">
-    <div class="intro-head">
-      <div class="mono muted">знакомство</div>
-      <h2 class="h-serif">${esc(s.intro_title)}</h2>
-    </div>
+    <span class="mono muted">знакомство</span>
+    <h2 class="h-serif">${esc(s.intro_title)}</h2>
     <p class="lead">${esc(s.intro_text)}</p>
   </div></section>
 
@@ -272,7 +280,7 @@ function initLightbox(photos) {
   let i = 0;
   const show = n => {
     i = (n + photos.length) % photos.length; const p = photos[i];
-    img.src = src(p.image, 2000); img.alt = p.alt || ""; cap.textContent = p.caption || "";
+    img.src = src(p.image, 2000); img.alt = p.alt || ""; cap.textContent = "";
     cnt.textContent = `${i + 1} / ${photos.length}`;
   };
   const open = n => { show(n); lb.classList.add("open"); document.body.style.overflow = "hidden"; $(".lb-close", lb).focus(); };
@@ -367,6 +375,42 @@ function fillGaps(el, cols) {
   });
 }
 
+/* ── интерактив первого экрана ───────────────────────── */
+function initHero() {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // меняющееся слово «Снимаю …»
+  const w = $(".hero-rot .word");
+  if (w && !reduce) {
+    const words = w.dataset.words.split("|"); let k = 0;
+    setInterval(() => {
+      w.classList.add("out");
+      setTimeout(() => { k = (k + 1) % words.length; w.textContent = words[k]; w.classList.remove("out"); }, 350);
+    }, 2400);
+  }
+  // колода полароидов
+  const deck = $(".deck"); if (!deck) return;
+  const cards = [...deck.querySelectorAll(".card")]; const n = cards.length;
+  let order = cards.map((_, i) => i), busy = false, timer;
+  const paint = () => order.forEach((ci, pos) => cards[ci].dataset.pos = pos);
+  const next = () => {
+    if (busy || n < 2) return; busy = true;
+    const top = cards[order[0]]; top.classList.add("fly");
+    setTimeout(() => { top.classList.remove("fly"); order.push(order.shift()); paint(); busy = false; }, 450);
+  };
+  const auto = () => { clearInterval(timer); if (!reduce) timer = setInterval(next, 3200); };
+  deck.addEventListener("click", () => { next(); auto(); });
+  deck.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); next(); auto(); } });
+  $(".deck-next").addEventListener("click", () => { next(); auto(); });
+  deck.addEventListener("mouseenter", () => clearInterval(timer));
+  deck.addEventListener("mouseleave", () => { deck.style.setProperty("--tx", "0deg"); deck.style.setProperty("--ty", "0deg"); auto(); });
+  if (!reduce) deck.addEventListener("mousemove", e => {
+    const r = deck.getBoundingClientRect();
+    deck.style.setProperty("--tx", ((e.clientX - r.left) / r.width - .5) * 14 + "deg");
+    deck.style.setProperty("--ty", -((e.clientY - r.top) / r.height - .5) * 14 + "deg");
+  });
+  auto();
+}
+
 /* ── запуск ──────────────────────────────────────────── */
 (async function main() {
   const app = $("#app");
@@ -392,6 +436,7 @@ function fillGaps(el, cols) {
     app.innerHTML = header(s, gs, current) + `<main>${html}</main>` + footer(s);
     app.removeAttribute("data-loading");
     document.querySelectorAll(".masonry").forEach(masonry);
+    if (page === "home") initHero();
     if (page === "gallery") initLightbox(gs.find(x => x.key === document.body.dataset.cat).photos.filter(p => p.image));
     if (location.hash) { const t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
   } catch (err) {
