@@ -701,3 +701,12 @@ body { background-image: none; font: 400 19px/1.6 var(--f-serif); letter-spacing
   .pr-photo { flex: none; height: 220px; }
 }.pr-group h2.pr-title, .pr-name { font-size: clamp(26px, 3.2vw, 40px); line-height: 1.1; }
 .pr-group h2.pr-title { color: var(--ink); }.pr-price { font-size: clamp(26px, 3.2vw, 40px); line-height: 1.1; }
+
+/* фото в группе цен — целиком, 4:5; обе колонки заканчиваются общей линией */
+.pr-side { border-bottom: 1px solid var(--ink); padding-bottom: var(--s3); }
+.pr-photo { flex: none; min-height: 0; width: 62%; aspect-ratio: 4 / 5; margin-top: auto; padding-top: var(--s3); }
+.pr-photo img { height: 100%; object-position: 50% 25%; }
+.pr-list { align-self: stretch; border-bottom: 1px solid var(--ink); }
+.pr-list li:last-child { border-bottom: 0; }
+@media (max-width: 760px) { .pr-photo { width: 60%; height: auto; } .pr-side { border-bottom: 0; } }.pr-photo { padding-top: 0; }
+.pr-lead { margin-bottom: var(--s3); }
