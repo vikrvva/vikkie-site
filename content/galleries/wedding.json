@@ -17,6 +17,30 @@
                        "featured":  true
                    },
                    {
+                       "image":  "/images/wedding/wed-nastya-sky.jpg",
+                       "alt":  "Жених и невеста на фоне неба",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/wedding/wed-nastya-walk.jpg",
+                       "alt":  "Молодожёны держатся за руки у белого здания",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/wedding/wed-nastya-wall.jpg",
+                       "alt":  "Пара у белой стены с арочными окнами",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/wedding/wed-nastya-rings.jpg",
+                       "alt":  "Руки с обручальными кольцами на фоне неба",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
                        "image":  "/images/wedding/ig-Dc__wMTjXq_-1.jpg",
                        "alt":  "Жених и невеста у храма, чёрно-белое фото",
                        "caption":  "",
