@@ -205,7 +205,7 @@ function renderHome(s, gs, about) {
   for (let i = 0; pools.some(p => p[i]); i++) pools.forEach(p => p[i] && mix.push(p[i]));
   // колода на первом экране: по 2 лучших кадра из каждой категории, вперемешку
   const deck = [];
-  for (let i = 0; i < 2; i++) gs.forEach(g => { const p = (g.photos.filter(x => x.featured)[i] || g.photos[i]); if (p && p.image) deck.push({ image: p.image, g }); });
+  for (let i = 0; i < 2; i++) gs.forEach(g => { const p = (g.photos.filter(x => x.featured)[i] || g.photos[i]); if (p && p.image) deck.push({ image: p.image, focus: p.focus, g }); });
   const marquee = gs.map(g => `<span>${esc(g.title)}</span>`).join("");
   const letters = [..."ikkie"].map(c => `<span class="ch">${c}</span>`).join("");
   const words = String(s.hero_words || "нежно, смело, живо, с любовью").split(",").map(w => w.trim()).filter(Boolean);
@@ -219,7 +219,7 @@ function renderHome(s, gs, about) {
       <p class="hero-shoot">снимаю <em class="word" data-words="${esc(words.join("|"))}">${esc(words[0] || "")}</em></p>
       <div class="strip" aria-label="Избранные кадры">
         <div class="strip-track">
-          ${deck.map((d, i) => `<a class="strip-item" href="${d.g.url}"><img src="${src(d.image, 900)}" alt="${esc(d.g.title)}"><span class="mono">${String(i + 1).padStart(2, "0")} — ${esc(d.g.title)}</span></a>`).join("")}
+          ${deck.map((d, i) => `<a class="strip-item" href="${d.g.url}"><img src="${src(d.image, 900)}" alt="${esc(d.g.title)}"${d.focus ? ` style="object-position:${esc(d.focus)}"` : ""}><span class="mono">${String(i + 1).padStart(2, "0")} — ${esc(d.g.title)}</span></a>`).join("")}
         </div>
         <button type="button" class="strip-btn prev" aria-label="Назад">←</button>
         <button type="button" class="strip-btn next" aria-label="Дальше">→</button>

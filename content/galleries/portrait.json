@@ -8,7 +8,8 @@
                        "image":  "/images/portrait/vika-satin-2.jpg",
                        "alt":  "Девушка лежит на атласе, взгляд в камеру",
                        "caption":  "",
-                       "featured":  true
+                       "featured":  true,
+                       "focus":  "82% 50%"
                    },
                    {
                        "image":  "/images/portrait/kate-back.jpg",
@@ -20,7 +21,7 @@
                        "image":  "/images/portrait/vika-satin-1.jpg",
                        "alt":  "Девушка на белом атласе, нежные тона",
                        "caption":  "",
-                       "featured":  true
+                       "featured":  false
                    },
                    {
                        "image":  "/images/portrait/leo-1.jpg",
