@@ -25,7 +25,6 @@ function src(path, w = 1000) {
   // Netlify Image CDN работает только на Netlify; на других хостингах отдаём файл как есть
   if (/\.netlify\.app$/.test(location.hostname) && !/\.svg$/i.test(path) && !/^https?:/i.test(path)) return `/.netlify/images?url=${encodeURIComponent(path)}&w=${w}&q=82`;
   return path;
-}&w=${w}&q=82`;
 }
 const tel = p => "tel:" + String(p || "").replace(/[^\d+]/g, "");
 /* последнее слово заголовка — курсивом в акцентном цвете */
