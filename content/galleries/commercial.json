@@ -75,6 +75,12 @@
                        "alt":  "Ивент: четыре подруги позируют в ярких образах",
                        "caption":  "",
                        "featured":  true
+                   },
+                   {
+                       "image":  "/images/commercial/event-party-4.jpg",
+                       "alt":  "Ивент: четыре подруги в ярких образах, второй кадр",
+                       "caption":  "",
+                       "featured":  false
                    }
                ]
 }
