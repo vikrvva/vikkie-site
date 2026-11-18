@@ -6,6 +6,9 @@
 backend:
   name: github
   repo: vikrvva/vikkie-site
+  # вход через GitHub идёт через Netlify (OAuth), даже если сайт опубликован на Cloudflare
+  base_url: https://api.netlify.com
+  site_domain: vikkie-photo.netlify.app
   branch: main
   commit_messages:
     create: "Добавлено: {{collection}} «{{slug}}»"

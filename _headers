@@ -1,0 +1,4 @@
+/content/*
+  Cache-Control: public, max-age=0, must-revalidate
+/admin/*
+  X-Robots-Tag: noindex
