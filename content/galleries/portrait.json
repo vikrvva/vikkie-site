@@ -11,6 +11,12 @@
                        "featured":  true
                    },
                    {
+                       "image":  "/images/portrait/kate-back.jpg",
+                       "alt":  "Студийный портрет: девушка в чёрном с открытой спиной",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
                        "image":  "/images/portrait/vika-satin-1.jpg",
                        "alt":  "Девушка на белом атласе, нежные тона",
                        "caption":  "",
