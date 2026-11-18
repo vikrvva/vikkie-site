@@ -191,10 +191,10 @@ function clientsBlock(s) {
 /* страница «Стоимость» */
 function renderPrices(s, pr) {
   document.title = `${pr.title || "Стоимость"} — VIKKIE`;
-  return `<section class="page-head"><div class="wrap">
+  return `<section class="page-head prices-head"><div class="wrap">
     <div class="crumbs mono"><a href="/">главная</a> / ${esc(pr.title || "стоимость")}</div>
     <div class="page-title"><h1>${esc(pr.title || "Стоимость")}</h1><span class="script">${esc(pr.tagline || "")}</span></div>
-    <p class="lead" style="margin-top:32px">${esc(pr.intro || "")}</p>
+    <p class="lead">${esc(pr.intro || "")}</p>
   </div></section>
   <section class="prices section" style="padding-top:0"><div class="wrap">
     ${(pr.groups || []).map(g => `<div class="pr-group">
