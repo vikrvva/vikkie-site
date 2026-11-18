@@ -684,3 +684,20 @@ body { background-image: none; font: 400 19px/1.6 var(--f-serif); letter-spacing
   .pr-side { position: static; }
   .pr-photo { max-width: 200px; }
 }
+/* ── Стоимость: строгая сетка ──
+   верхние линии колонок на одном уровне, цифра над линией,
+   название группы — на уровне первой позиции, фото заканчивается вместе со списком */
+.pr-group { align-items: stretch; margin-top: clamp(110px, 11vw, 160px); }
+.pr-group:first-of-type { margin-top: clamp(90px, 9vw, 130px); }
+.pr-side { position: relative; top: auto; display: flex; flex-direction: column; padding-top: var(--s3); border-top: 1px solid var(--ink); }
+.pr-num { position: absolute; left: 0; bottom: calc(100% + 10px); margin: 0; line-height: .8; font-size: clamp(90px, 9vw, 130px); }
+.pr-group h2.pr-title { position: static; border-top: 0; padding-top: 0; margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.1; }
+.pr-lead { margin-top: var(--s1); font-size: 16px; }
+.pr-photo { flex: 1 1 0; min-height: 140px; max-width: none; margin: var(--s3) 0 0; padding: 0; transform: none !important; box-shadow: none; background: none; }
+.pr-photo img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: 50% 30%; }
+.pr-list li:last-child { border-bottom: 1px solid var(--ink); }
+@media (max-width: 760px) {
+  .pr-group, .pr-group:first-of-type { margin-top: 110px; }
+  .pr-photo { flex: none; height: 220px; }
+}.pr-group h2.pr-title, .pr-name { font-size: clamp(26px, 3.2vw, 40px); line-height: 1.1; }
+.pr-group h2.pr-title { color: var(--ink); }.pr-price { font-size: clamp(26px, 3.2vw, 40px); line-height: 1.1; }
