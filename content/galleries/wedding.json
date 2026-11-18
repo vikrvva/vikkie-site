@@ -5,6 +5,18 @@
     "cover":  "/images/wedding/ig-Dc__wMTjXq_-1.jpg",
     "photos":  [
                    {
+                       "image":  "/images/wedding/wed-zags-bubbles.jpg",
+                       "alt":  "Молодожёны выходят из ЗАГСа в мыльных пузырях",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/wedding/wed-sofa-bw.jpg",
+                       "alt":  "Жених и невеста показывают кольца, чёрно-белое фото",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
                        "image":  "/images/wedding/ig-Dc__wMTjXq_-1.jpg",
                        "alt":  "Жених и невеста у храма, чёрно-белое фото",
                        "caption":  "",

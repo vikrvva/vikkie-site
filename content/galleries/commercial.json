@@ -2,47 +2,29 @@
     "title":  "Реклама",
     "tagline":  "контент с характером",
     "description":  "Съёмка для брендов, мастеров и магазинов: лукбуки, предметка, контент для соцсетей и сайта. Живо, стильно и с характером — так, чтобы ваш продукт хотелось купить с первого кадра.",
-    "cover":  "/images/commercial/ad-drink-1.jpg",
+    "cover":  "/images/commercial/drinkit-a.jpg",
     "photos":  [
                    {
-                       "image":  "/images/commercial/drinkit-1.jpg",
-                       "alt":  "Drinkit: девушка с двумя напитками",
+                       "image":  "/images/commercial/drinkit-a.jpg",
+                       "alt":  "Drinkit: девушка в очках с напитком",
                        "caption":  "",
                        "featured":  true
                    },
                    {
-                       "image":  "/images/commercial/drinkit-6.jpg",
-                       "alt":  "Drinkit: напитки крупным планом на фоне неба",
+                       "image":  "/images/commercial/drinkit-b.jpg",
+                       "alt":  "Drinkit: у вывески кофейни",
                        "caption":  "",
                        "featured":  true
                    },
                    {
-                       "image":  "/images/commercial/drinkit-5.jpg",
-                       "alt":  "Drinkit: улыбка со стаканом",
+                       "image":  "/images/commercial/drinkit-d.jpg",
+                       "alt":  "Drinkit: за столом с напитками",
                        "caption":  "",
                        "featured":  false
                    },
                    {
-                       "image":  "/images/commercial/drinkit-3.jpg",
-                       "alt":  "Drinkit: девушка на скамье с кофе",
-                       "caption":  "",
-                       "featured":  false
-                   },
-                   {
-                       "image":  "/images/commercial/drinkit-2.jpg",
-                       "alt":  "Drinkit: стакан в руке",
-                       "caption":  "",
-                       "featured":  false
-                   },
-                   {
-                       "image":  "/images/commercial/drinkit-4.jpg",
-                       "alt":  "Drinkit: летний образ с кофе",
-                       "caption":  "",
-                       "featured":  false
-                   },
-                   {
-                       "image":  "/images/commercial/drinkit-7.jpg",
-                       "alt":  "Drinkit: у витрины кофейни",
+                       "image":  "/images/commercial/drinkit-c.jpg",
+                       "alt":  "Drinkit: стакан в руке на фоне витрины",
                        "caption":  "",
                        "featured":  false
                    },

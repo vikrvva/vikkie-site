@@ -212,26 +212,24 @@ function renderHome(s, gs, about) {
 
   return `
   <section class="hero">
-    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
     <div class="wrap">
-    <div class="hero-text fade-in">
-      <div class="hero-kicker mono"><i></i>${esc(s.hero_kicker)} · запись открыта</div>
-      <h1 class="hero-name"><span class="wordmark" aria-label="Vikkie"><span class="wm-v">V</span><span class="wm-rest">${letters}</span></span><span class="full">Viktoriia Karavaeva</span></h1>
-      <p class="hero-rot">Снимаю <span class="word" data-words="${esc(words.join("|"))}">${esc(words[0] || "")}</span></p>
-      <p class="hero-tagline">${esc(s.hero_tagline)}</p>
-      <div class="hero-actions">${writeBtn(s)}<a class="btn ghost" href="#work">Смотреть работы</a></div>
-    </div>
-    <div class="deck-wrap">
-      <div class="deck" role="button" tabindex="0" aria-label="Листать фотографии">
-        ${deck.map((d, i) => `<figure class="card ${i % 2 ? "tape pink" : "tape"}" data-pos="${i}" data-url="${d.g.url}">
-          <img src="${src(d.image, 800)}" alt="${esc(d.g.title)}"><span class="tag">${esc(d.g.title)}</span><span class="num mono">${String(i + 1).padStart(2, "0")} / ${String(deck.length).padStart(2, "0")}</span></figure>`).join("")}
+      <div class="hero-meta mono"><span>${esc(s.hero_kicker)}</span><span class="live"><i></i>запись открыта</span></div>
+      <h1 class="hero-name"><span class="wordmark" aria-label="Vikkie"><span class="wm-v">V</span><span class="wm-rest">${letters}</span></span></h1>
+      <p class="hero-role">фотограф</p>
+      <p class="hero-shoot">снимаю <em class="word" data-words="${esc(words.join("|"))}">${esc(words[0] || "")}</em></p>
+      <div class="strip" aria-label="Избранные кадры">
+        <div class="strip-track">
+          ${deck.map((d, i) => `<a class="strip-item" href="${d.g.url}"><img src="${src(d.image, 900)}" alt="${esc(d.g.title)}"><span class="mono">${String(i + 1).padStart(2, "0")} — ${esc(d.g.title)}</span></a>`).join("")}
+        </div>
+        <button type="button" class="strip-btn prev" aria-label="Назад">←</button>
+        <button type="button" class="strip-btn next" aria-label="Дальше">→</button>
       </div>
-      <div class="deck-hint"><button type="button" class="deck-next" aria-label="Следующее фото">→</button><span class="mono muted">листай кадры</span></div>
-      <span class="spark" style="width:34px;height:34px;top:-10px;right:4%">${STAR}</span>
-      <span class="spark" style="width:20px;height:20px;bottom:22%;left:0;animation-delay:1s">${STAR}</span>
-      <span class="spark" style="width:16px;height:16px;top:38%;right:-2%;animation-delay:2s">${STAR}</span>
+      <div class="hero-foot">
+        <p class="hero-tagline">${esc(s.hero_tagline)}</p>
+        <div class="hero-actions">${writeBtn(s)}<a class="btn ghost" href="#work">Смотреть работы</a></div>
+      </div>
     </div>
-  </div></section>
+  </section>
 
   <div class="marquee" aria-hidden="true"><div class="marquee-track">${marquee}${marquee}${marquee}${marquee}</div></div>
 
@@ -413,7 +411,7 @@ function initHero() {
   placeName(); addEventListener("resize", placeName); document.fonts && document.fonts.ready.then(placeName);
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   // меняющееся слово «Снимаю …»
-  const w = $(".hero-rot .word");
+  const w = $(".hero-shoot .word");
   if (w && !reduce) {
     const words = w.dataset.words.split("|"); let k = 0;
     setInterval(() => {
@@ -421,30 +419,24 @@ function initHero() {
       setTimeout(() => { k = (k + 1) % words.length; w.textContent = words[k]; w.classList.remove("out"); }, 350);
     }, 2400);
   }
-  // колода полароидов
-  const deck = $(".deck"); if (!deck) return;
-  const cards = [...deck.querySelectorAll(".card")]; const n = cards.length;
-  let order = cards.map((_, i) => i), busy = false, timer;
-  const paint = () => order.forEach((ci, pos) => cards[ci].dataset.pos = pos);
-  const next = () => {
-    if (busy || n < 2) return; busy = true;
-    const top = cards[order[0]]; top.classList.add("fly");
-    setTimeout(() => { top.classList.remove("fly"); order.push(order.shift()); paint(); busy = false; }, 450);
+  // лента кадров: листается сама, стрелками и свайпом
+  const tr = $(".strip-track"); if (!tr) return;
+  const step = () => (tr.querySelector(".strip-item")?.getBoundingClientRect().width || 300) + 24;
+  let visible = true;
+  if ("IntersectionObserver" in window) new IntersectionObserver(e => { visible = e[0].isIntersecting; }).observe(tr);
+  const go = d => {
+    const max = tr.scrollWidth - tr.clientWidth;
+    let x = tr.scrollLeft + d * step();
+    if (x > max + 4) x = 0; if (x < -4) x = max;
+    tr.scrollTo({ left: x, behavior: "smooth" });
   };
-  const auto = () => { clearInterval(timer); if (!reduce) timer = setInterval(next, 3200); };
-  deck.addEventListener("click", () => { next(); auto(); });
-  deck.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); next(); auto(); } });
-  $(".deck-next").addEventListener("click", () => { next(); auto(); });
-  deck.addEventListener("mouseenter", () => clearInterval(timer));
-  deck.addEventListener("mouseleave", () => { deck.style.setProperty("--tx", "0deg"); deck.style.setProperty("--ty", "0deg"); auto(); });
-  if (!reduce) deck.addEventListener("mousemove", e => {
-    const r = deck.getBoundingClientRect();
-    deck.style.setProperty("--tx", ((e.clientX - r.left) / r.width - .5) * 14 + "deg");
-    deck.style.setProperty("--ty", -((e.clientY - r.top) / r.height - .5) * 14 + "deg");
-  });
+  $(".strip .next").onclick = () => { go(1); auto(); };
+  $(".strip .prev").onclick = () => { go(-1); auto(); };
+  let timer; const auto = () => { clearInterval(timer); if (!reduce) timer = setInterval(() => { if (visible && !document.hidden) go(1); }, 3500); };
+  tr.addEventListener("pointerenter", () => clearInterval(timer));
+  tr.addEventListener("pointerleave", auto);
   auto();
 }
-
 /* ── запуск ──────────────────────────────────────────── */
 (async function main() {
   const app = $("#app");

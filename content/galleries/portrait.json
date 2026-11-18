@@ -2,8 +2,20 @@
     "title":  "Женский портрет",
     "tagline":  "Ты и твоя женская сила",
     "description":  "Про тебя — игривую, яркую, смелую, романтичную. Мягкий свет, воздух и немного смелости. Хочу, чтобы ты посмотрела на эти фото и подумала: «Это правда я? Какая же я красивая».",
-    "cover":  "/images/portrait/ig-Ddof1n9jc2M-1.jpg",
+    "cover":  "/images/portrait/vika-satin-1.jpg",
     "photos":  [
+                   {
+                       "image":  "/images/portrait/vika-satin-2.jpg",
+                       "alt":  "Девушка лежит на атласе, взгляд в камеру",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/portrait/vika-satin-1.jpg",
+                       "alt":  "Девушка на белом атласе, нежные тона",
+                       "caption":  "",
+                       "featured":  true
+                   },
                    {
                        "image":  "/images/portrait/leo-1.jpg",
                        "alt":  "Девушка в леопардовой куртке у белой стены",
