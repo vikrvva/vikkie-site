@@ -161,6 +161,8 @@ collections:
             summary: "{{fields.name}}"
             fields:
               - { label: "Название группы", name: name, widget: string }
+              - { label: "Короткая фраза", name: lead, widget: text, required: false }
+              - { label: "Фото", name: image, widget: image, required: false, media_folder: /images/site, public_folder: /images/site }
               - label: "Позиции"
                 name: items
                 widget: list

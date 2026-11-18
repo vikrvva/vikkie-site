@@ -671,3 +671,16 @@ body { background-image: none; font: 400 19px/1.6 var(--f-serif); letter-spacing
   .pr-group h2 { position: static; border-top: 0; padding-top: 0; }
   .pr-cta { margin-left: 0; }
 }
+/* ── Стоимость: насыщенная левая колонка ── */
+.pr-side { position: sticky; top: 96px; padding-top: var(--s3); border-top: 1px solid var(--ink); }
+.pr-num { display: block; font-family: var(--f-script); font-size: clamp(110px, 12vw, 170px); line-height: .7; color: var(--a); margin: var(--s2) 0 calc(-1 * var(--s3)); opacity: .9; }
+.pr-title { position: relative; margin: 0; font-family: var(--f-serif); font-weight: 400; font-size: clamp(34px, 3.6vw, 52px); line-height: 1.02; letter-spacing: -.02em; }
+.pr-title .script { font-style: italic; color: var(--a-deep); }
+.pr-lead { margin: var(--s2) 0 0; max-width: 32ch; color: var(--muted); font-size: 17px; line-height: 1.55; }
+.pr-photo { margin: var(--s4) 0 0; max-width: 260px; transform: rotate(-2deg); background: var(--paper-2); padding: 8px 8px 28px; box-shadow: var(--shadow); }
+.pr-group:nth-child(even) .pr-photo { transform: rotate(2deg); }
+.pr-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+@media (max-width: 760px) {
+  .pr-side { position: static; }
+  .pr-photo { max-width: 200px; }
+}

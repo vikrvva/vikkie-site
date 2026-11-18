@@ -197,8 +197,13 @@ function renderPrices(s, pr) {
     <p class="lead">${esc(pr.intro || "")}</p>
   </div></section>
   <section class="prices section" style="padding-top:0"><div class="wrap">
-    ${(pr.groups || []).map(g => `<div class="pr-group">
-      <h2 class="mono">${esc(g.name)}</h2>
+    ${(pr.groups || []).map((g, gi) => `<div class="pr-group">
+      <div class="pr-side">
+        <span class="pr-num" aria-hidden="true">${gi + 1}</span>
+        <h2 class="pr-title">${italicLast(g.name)}</h2>
+        ${g.lead ? `<p class="pr-lead">${esc(g.lead)}</p>` : ""}
+        ${g.image ? `<figure class="pr-photo"><img src="${src(g.image, 700)}" alt="" loading="lazy"></figure>` : ""}
+      </div>
       <ul class="pr-list">${(g.items || []).map(it => `<li>
         <span class="pr-name">${esc(it.name)}${it.note ? `<span class="pr-note">${esc(it.note)}</span>` : ""}</span>
         <span class="pr-dots" aria-hidden="true"></span>
