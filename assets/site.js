@@ -78,7 +78,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") document.que
 
 /* ── шапка и подвал ──────────────────────────────────── */
 function header(s, galleries, current) {
-  const links = [...CATS.map(c => [c.url, c.short]), ["/about.html", "обо мне"], ["/#contact", "контакты"]];
+  const links = [...CATS.map(c => [c.url, c.short]), ["/prices.html", "стоимость"], ["/about.html", "обо мне"], ["/#contact", "контакты"]];
   return `<header class="site-header"><div class="wrap">
     <a class="logo" href="/" aria-label="VIKKIE — на главную">${WORDMARK}${STAR}</a>
     <button class="burger mono" type="button" aria-label="Меню">меню</button>
@@ -186,6 +186,27 @@ function clientsBlock(s) {
     <h2 class="h-serif" id="cl-h">${italicLast(s.clients_title || "Со мной работали")}</h2>
     <ul class="cl-list">${cl.map(c => `<li><span class="cl-name">${esc(c.name)}</span><span class="cl-note">${esc(c.note || "")}</span></li>`).join("")}</ul>
   </div></section>`;
+}
+
+/* страница «Стоимость» */
+function renderPrices(s, pr) {
+  document.title = `${pr.title || "Стоимость"} — VIKKIE`;
+  return `<section class="page-head"><div class="wrap">
+    <div class="crumbs mono"><a href="/">главная</a> / ${esc(pr.title || "стоимость")}</div>
+    <div class="page-title"><h1>${esc(pr.title || "Стоимость")}</h1><span class="script">${esc(pr.tagline || "")}</span></div>
+    <p class="lead" style="margin-top:32px">${esc(pr.intro || "")}</p>
+  </div></section>
+  <section class="prices section" style="padding-top:0"><div class="wrap">
+    ${(pr.groups || []).map(g => `<div class="pr-group">
+      <h2 class="mono">${esc(g.name)}</h2>
+      <ul class="pr-list">${(g.items || []).map(it => `<li>
+        <span class="pr-name">${esc(it.name)}${it.note ? `<span class="pr-note">${esc(it.note)}</span>` : ""}</span>
+        <span class="pr-dots" aria-hidden="true"></span>
+        <span class="pr-price">${esc(it.price)}</span></li>`).join("")}</ul>
+    </div>`).join("")}
+    <div class="pr-cta">${writeBtn(s, "", "Записаться")}</div>
+  </div></section>
+  ${contactBlock(s)}`;
 }
 
 /* ── страницы ────────────────────────────────────────── */
@@ -459,6 +480,7 @@ function initHero() {
     }
     else if (page === "gallery") { const k = document.body.dataset.cat; current = CATS.find(c => c.key === k).url; html = renderGallery(s, gs, k); }
     else if (page === "palettes") html = renderPalettes();
+    else if (page === "prices") { current = "/prices.html"; html = renderPrices(s, await getJSON("/content/prices.json")); }
     app.innerHTML = header(s, gs, current) + `<main>${html}</main>` + footer(s);
     app.removeAttribute("data-loading");
     document.querySelectorAll(".masonry").forEach(masonry);

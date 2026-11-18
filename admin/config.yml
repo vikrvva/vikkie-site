@@ -144,6 +144,32 @@ collections:
               - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
               - { label: "Кадрирование на главной", name: focus, widget: string, required: false, hint: "Если голова обрезана: 80% 50% сдвигает вправо, 20% 50% влево, 50% 20% вверх" }
 
+  # ── Стоимость ───────────────────────────────────────────────
+  - name: prices
+    label: "💸 Стоимость"
+    files:
+      - name: prices
+        label: "Цены"
+        file: content/prices.json
+        fields:
+          - { label: "Заголовок", name: title, widget: string }
+          - { label: "Подзаголовок", name: tagline, widget: string, required: false }
+          - { label: "Вступление", name: intro, widget: text, required: false }
+          - label: "Группы"
+            name: groups
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Название группы", name: name, widget: string }
+              - label: "Позиции"
+                name: items
+                widget: list
+                summary: "{{fields.name}} — {{fields.price}}"
+                fields:
+                  - { label: "Название", name: name, widget: string }
+                  - { label: "Пояснение", name: note, widget: string, required: false }
+                  - { label: "Цена", name: price, widget: string, hint: "Например: 5 000 ₽" }
+
   # ── Тексты и контакты ───────────────────────────────────────
   - name: pages
     label: "✏️ Тексты и контакты"

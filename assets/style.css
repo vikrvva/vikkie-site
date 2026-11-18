@@ -639,3 +639,16 @@ body { background-image: none; font: 400 19px/1.6 var(--f-serif); letter-spacing
 .hero-shoot .word.out { opacity: 0; transform: translateY(.3em); }
 .hero-name { margin-top: clamp(40px, 5vw, 72px); }
 .strip-item img { object-position: 62% 62%; }
+
+/* ── Стоимость ── */
+.prices .wrap { max-width: 980px; }
+.pr-group { margin-top: var(--s6); }
+.pr-group h2 { margin: 0 0 var(--s2); color: var(--muted); }
+.pr-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.pr-list li { display: flex; align-items: baseline; gap: var(--s2); padding: var(--s3) 0; border-bottom: 1px solid var(--line); }
+.pr-name { font-family: var(--f-serif); font-size: clamp(26px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -.01em; }
+.pr-note { display: block; margin-top: 6px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.pr-dots { flex: 1; border-bottom: 1px dotted var(--muted); transform: translateY(-.35em); min-width: 24px; }
+.pr-price { font-family: var(--f-serif); font-style: italic; font-size: clamp(24px, 3vw, 34px); white-space: nowrap; color: var(--a-deep); }
+.pr-cta { margin-top: var(--s5); }
+@media (max-width: 560px) { .pr-dots { display: none; } .pr-list li { justify-content: space-between; } }
