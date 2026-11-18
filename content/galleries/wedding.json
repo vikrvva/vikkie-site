@@ -98,7 +98,7 @@
                        "image":  "/images/wedding/wed-garden-4.jpg",
                        "alt":  "Двое друзей в саду",
                        "caption":  "",
-                       "featured":  false
+                       "featured":  true
                    },
                    {
                        "image":  "/images/wedding/wed-garden-1.jpg",
