@@ -754,3 +754,7 @@ body { background-image: none; font: 400 19px/1.6 var(--f-serif); letter-spacing
   .sp-title .sp-a, .sp-title .sp-b { font-size: 76px; }
   .sp-stage { padding: 52px 0 52px; }
 }
+
+/* «Обо мне» без фото: текст в одну колонку комфортной ширины */
+.about-grid.no-photo { grid-template-columns: minmax(0, 1fr); }
+.about-grid.no-photo .about-text { max-width: 760px; }

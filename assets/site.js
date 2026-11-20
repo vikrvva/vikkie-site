@@ -117,9 +117,10 @@ function keys(word) {
 }
 function rings(n = 8) { return `<div class="rings" aria-hidden="true">${"<span></span>".repeat(n)}</div>`; }
 function aboutBlock(a, s, full) {
+  const showPhoto = a.photo && a.show_photo !== false; // «Показывать моё фото» в админке
   return `<div class="about-card fade-in">
     <span class="star spin" style="width:34px;top:-16px;right:12%">${STAR}</span>
-    <div class="about-grid">
+    <div class="about-grid${showPhoto ? "" : " no-photo"}">
       <div class="about-text">
         <div class="hi"><h2 class="h-big">Привет, я</h2>${keys("VIKKIE")}</div>
         <p class="note" style="margin:18px 0 22px">${esc(a.hello)}</p>
@@ -127,10 +128,10 @@ function aboutBlock(a, s, full) {
         <ul class="facts">${(a.facts || []).map(f => `<li>✶ ${esc(f.text)}</li>`).join("")}</ul>
         ${full ? writeBtn(s, "up") : `<a class="btn ghost" href="/about.html">Читать полностью ↗</a>`}
       </div>
-      <div class="about-photo">
+      ${showPhoto ? `<div class="about-photo">
         <figure class="polaroid" style="--r:4deg">${CLIP}<img src="${src(a.photo, 800)}" alt="Виктория Караваева"></figure>
         <span class="star deep" style="width:30px;bottom:-12px;left:-14px">${STAR5}</span>
-      </div>
+      </div>` : ""}
     </div>
   </div>`;
 }
