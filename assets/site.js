@@ -227,12 +227,15 @@ async function loadCommon() {
 
 function renderHome(s, gs, about) {
   // перемешиваем «избранные» фото из всех категорий по очереди
-  const pools = gs.map(g => g.photos.filter(p => p.featured && p.image).map(p => ({ ...p, g })));
-  const mix = [];
-  for (let i = 0; pools.some(p => p[i]); i++) pools.forEach(p => p[i] && mix.push(p[i]));
-  // колода на первом экране: по 2 лучших кадра из каждой категории, вперемешку
+  // каждое фото на главной показывается только один раз:
+  // лента наверху → серия-коллаж → «Любимые кадры» из оставшихся
+  const used = new Set(gs.map(g => g.cover || (g.photos[0] || {}).image).filter(Boolean)); // обложки категорий
   const deck = [];
-  for (let i = 0; i < 2; i++) gs.forEach(g => { const p = (g.photos.filter(x => x.featured)[i] || g.photos[i]); if (p && p.image) deck.push({ image: p.image, focus: p.focus, g }); });
+  for (let i = 0; i < 2; i++) gs.forEach(g => { const p = (g.photos.filter(x => x.featured)[i] || g.photos[i]); if (p && p.image && !used.has(p.image)) { used.add(p.image); deck.push({ image: p.image, focus: p.focus, g }); } });
+  ((s.spotlight && s.spotlight.photos) || []).forEach(p => p.image && used.add(p.image));
+  const pools = gs.map(g => g.photos.filter(p => p.featured && p.image && !used.has(p.image)).map(p => ({ ...p, g })));
+  const mix = [];
+  for (let i = 0; pools.some(p => p[i]); i++) pools.forEach(p => { if (p[i] && !used.has(p[i].image)) { used.add(p[i].image); mix.push(p[i]); } });
   const marquee = gs.map(g => `<span>${esc(g.title)}</span>`).join("");
   const letters = [..."ikkie"].map(c => `<span class="ch">${c}</span>`).join("");
   const words = String(s.hero_words || "нежно, смело, живо, с любовью").split(",").map(w => w.trim()).filter(Boolean);
