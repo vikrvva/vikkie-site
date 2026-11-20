@@ -377,7 +377,7 @@ function renderPalettes() {
 function masonry(el) {
   const items = [...el.children].filter(n => !n.classList.contains("m-col"));
   if (!items.length) return;
-  const colsFor = () => (innerWidth >= 1000 ? 3 : innerWidth >= 620 ? 2 : 1);
+  const colsFor = () => (innerWidth >= 1000 ? 3 : 2);
   const ratio = it => { const i = it.querySelector("img"); return i && i.naturalWidth ? i.naturalHeight / i.naturalWidth : 1.25; };
   let current = 0;
   const layout = () => {

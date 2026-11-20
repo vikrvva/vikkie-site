@@ -710,3 +710,24 @@ body { background-image: none; font: 400 19px/1.6 var(--f-serif); letter-spacing
 .pr-list li:last-child { border-bottom: 0; }
 @media (max-width: 760px) { .pr-photo { width: 60%; height: auto; } .pr-side { border-bottom: 0; } }.pr-photo { padding-top: 0; }
 .pr-lead { margin-bottom: var(--s3); }
+
+/* ── Мобильная версия: по 2 фото в ряд, компактнее ── */
+@media (max-width: 620px) {
+  .masonry.is-laid { gap: 12px; }
+  .masonry.is-laid > .m-col { gap: 16px; }
+  .masonry { columns: 2; column-gap: 12px; }
+  .polaroid { padding: 6px 6px 16px; }
+  .polaroid .cat-tag { bottom: 4px; right: 6px; font-size: 8px; padding: 2px 6px; }
+  .tape::before { width: 56px; height: 18px; top: -9px; }
+  .m-fill { padding: 12px; }
+  .m-fill .fill-text { font-size: 16px; }
+  .strip-item { flex-basis: calc((100% - 12px) / 2); }
+  .strip-track { gap: 12px; }
+  .strip-item span { font-size: 9px; }
+  .cats { grid-template-columns: 1fr 1fr; gap: 12px; row-gap: 48px; }
+  .cat { padding: 8px 8px 14px; }
+  .cat h3 { font-size: 20px; }
+  .cat .hand, .cat .more { font-size: 11px; }
+  .cat .tab { font-size: 8px; height: 22px; top: -22px; padding: 4px 8px 0; }
+  .sp-stage { gap: 10px; }
+}
