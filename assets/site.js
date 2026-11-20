@@ -231,7 +231,7 @@ function renderHome(s, gs, about) {
   // лента наверху → серия-коллаж → «Любимые кадры» из оставшихся
   const used = new Set(gs.map(g => g.cover || (g.photos[0] || {}).image).filter(Boolean)); // обложки категорий
   const deck = [];
-  for (let i = 0; i < 2; i++) gs.forEach(g => { const p = (g.photos.filter(x => x.featured)[i] || g.photos[i]); if (p && p.image && !used.has(p.image)) { used.add(p.image); deck.push({ image: p.image, focus: p.focus, g }); } });
+  for (let i = 0; i < 2; i++) gs.forEach(g => { const p = (g.photos.filter(x => x.featured && !x.home)[i] || g.photos[i]); if (p && p.image && !used.has(p.image)) { used.add(p.image); deck.push({ image: p.image, focus: p.focus, g }); } });
   ((s.spotlight && s.spotlight.photos) || []).forEach(p => p.image && used.add(p.image));
   const pools = gs.map(g => g.photos.filter(p => p.featured && p.image && !used.has(p.image)).map(p => ({ ...p, g })));
   const mix = [];
@@ -239,6 +239,8 @@ function renderHome(s, gs, about) {
   // «выше» / «ниже» в админке: home = top | bottom
   const W = p => p.home === "top" ? 0 : p.home === "bottom" ? 2 : 1;
   mix.sort((a, b) => W(a) - W(b));
+  // «в середине»: такие фото ставим в середину блока
+  const mids = mix.filter(p => p.home === "middle"); mids.forEach(p => mix.splice(mix.indexOf(p), 1)); mix.splice(Math.floor(mix.length / 2), 0, ...mids);
   const marquee = gs.map(g => `<span>${esc(g.title)}</span>`).join("");
   const letters = [..."ikkie"].map(c => `<span class="ch">${c}</span>`).join("");
   const words = String(s.hero_words || "нежно, смело, живо, с любовью").split(",").map(w => w.trim()).filter(Boolean);

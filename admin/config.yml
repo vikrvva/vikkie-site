@@ -61,7 +61,7 @@ collections:
               - { label: "Фото", name: image, widget: image, media_folder: /images/portrait, public_folder: /images/portrait }
               - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
               - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
-              - { label: "Место на главной", name: home, widget: select, required: false, options: [{ label: "выше", value: top }, { label: "ниже", value: bottom }] }
+              - { label: "Место на главной", name: home, widget: select, required: false, options: [{ label: "выше", value: top }, { label: "в середине", value: middle }, { label: "ниже", value: bottom }] }
               - { label: "Кадрирование на главной", name: focus, widget: string, required: false, hint: "Если голова обрезана: 80% 50% сдвигает вправо, 20% 50% влево, 50% 20% вверх" }
 
   # ── Свадьбы ─────────────────────────────────────────────────
@@ -89,7 +89,7 @@ collections:
               - { label: "Фото", name: image, widget: image, media_folder: /images/wedding, public_folder: /images/wedding }
               - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
               - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
-              - { label: "Место на главной", name: home, widget: select, required: false, options: [{ label: "выше", value: top }, { label: "ниже", value: bottom }] }
+              - { label: "Место на главной", name: home, widget: select, required: false, options: [{ label: "выше", value: top }, { label: "в середине", value: middle }, { label: "ниже", value: bottom }] }
               - { label: "Кадрирование на главной", name: focus, widget: string, required: false, hint: "Если голова обрезана: 80% 50% сдвигает вправо, 20% 50% влево, 50% 20% вверх" }
 
   # ── Love story ──────────────────────────────────────────────
@@ -117,7 +117,7 @@ collections:
               - { label: "Фото", name: image, widget: image, media_folder: /images/lovestory, public_folder: /images/lovestory }
               - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
               - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
-              - { label: "Место на главной", name: home, widget: select, required: false, options: [{ label: "выше", value: top }, { label: "ниже", value: bottom }] }
+              - { label: "Место на главной", name: home, widget: select, required: false, options: [{ label: "выше", value: top }, { label: "в середине", value: middle }, { label: "ниже", value: bottom }] }
               - { label: "Кадрирование на главной", name: focus, widget: string, required: false, hint: "Если голова обрезана: 80% 50% сдвигает вправо, 20% 50% влево, 50% 20% вверх" }
 
   # ── Реклама ─────────────────────────────────────────────────
@@ -145,7 +145,7 @@ collections:
               - { label: "Фото", name: image, widget: image, media_folder: /images/commercial, public_folder: /images/commercial }
               - { label: "Описание фото (для поиска и незрячих)", name: alt, widget: string, required: false }
               - { label: "Показывать на главной", name: featured, widget: boolean, default: false }
-              - { label: "Место на главной", name: home, widget: select, required: false, options: [{ label: "выше", value: top }, { label: "ниже", value: bottom }] }
+              - { label: "Место на главной", name: home, widget: select, required: false, options: [{ label: "выше", value: top }, { label: "в середине", value: middle }, { label: "ниже", value: bottom }] }
               - { label: "Кадрирование на главной", name: focus, widget: string, required: false, hint: "Если голова обрезана: 80% 50% сдвигает вправо, 20% 50% влево, 50% 20% вверх" }
 
   # ── Стоимость ───────────────────────────────────────────────

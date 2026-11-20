@@ -17,6 +17,31 @@
                        "featured":  false
                    },
                    {
+                       "image":  "/images/commercial/event-dogs-1.jpg",
+                       "home":  "middle",
+                       "alt":  "Drinkit, ивент с собаками: подруги со шпицами",
+                       "caption":  "",
+                       "featured":  true
+                   },
+                   {
+                       "image":  "/images/commercial/event-dogs-2.jpg",
+                       "alt":  "Drinkit, ивент с собаками: девушка и хаски",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/commercial/event-dogs-3.jpg",
+                       "alt":  "Drinkit, ивент с собаками: девушка с пуделем",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
+                       "image":  "/images/commercial/event-dogs-4.jpg",
+                       "alt":  "Drinkit, ивент с собаками: собаки на траве",
+                       "caption":  "",
+                       "featured":  false
+                   },
+                   {
                        "image":  "/images/commercial/drinkit-d.jpg",
                        "alt":  "Drinkit: за столом с напитками",
                        "caption":  "",
