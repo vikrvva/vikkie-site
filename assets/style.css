@@ -731,3 +731,26 @@ body { background-image: none; font: 400 19px/1.6 var(--f-serif); letter-spacing
   .cat .tab { font-size: 8px; height: 22px; top: -22px; padding: 4px 8px 0; }
   .sp-stage { gap: 10px; }
 }
+
+/* ── Серия «city girls»: строгая сетка ──
+   кадры одной высоты в ряд, «city» над левым краем сетки, «girls» под правым,
+   подписи и текст на тех же вертикалях */
+.sp-stage { position: relative; height: auto; display: block; margin-top: var(--s4); padding: clamp(56px, 7vw, 104px) 0 clamp(56px, 7vw, 104px); }
+.sp-grid { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: var(--s3); align-items: start; }
+.sp-grid.sp-n1 { --n: 1; } .sp-grid.sp-n2 { --n: 2; } .sp-grid.sp-n3 { --n: 3; } .sp-grid.sp-n4 { --n: 4; }
+.sp-grid .sp-ph { position: static; width: auto !important; margin: 0; padding: 0; background: none; box-shadow: none; transform: none !important; aspect-ratio: auto; }
+.sp-grid .sp-ph img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; transition: filter .4s; }
+.sp-grid .sp-ph:hover img { filter: brightness(1.04); }
+.sp-grid .sp-ph figcaption { margin-top: 10px; color: var(--muted); }
+.sp-title { position: absolute; inset: 0; z-index: 2; margin: 0; pointer-events: none; }
+.sp-title .sp-a, .sp-title .sp-b { position: absolute; font-size: clamp(88px, 13vw, 200px); line-height: .8; }
+.sp-title .sp-a { left: 0; top: 0; right: auto; bottom: auto; }
+.sp-title .sp-b { right: 0; bottom: 0; left: auto; top: auto; }
+.sp-cross { display: none; }
+.sp-foot { margin-top: 0; }
+@media (max-width: 620px) {
+  .sp-grid { gap: 10px; }
+  .sp-grid .sp-ph figcaption { font-size: 9px; margin-top: 6px; }
+  .sp-title .sp-a, .sp-title .sp-b { font-size: 76px; }
+  .sp-stage { padding: 52px 0 52px; }
+}

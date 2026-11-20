@@ -171,9 +171,10 @@ function spotlightBlock(s) {
   return `<section class="spotlight section" aria-labelledby="sp-h"><div class="wrap">
     <div class="sp-meta mono"><span>${esc(sp.kicker || "серия")}</span><span>${esc(sp.place || "")}</span></div>
     <div class="sp-stage">
-      ${ph.map((p, i) => `<figure class="sp-ph sp-ph${i + 1}"><img src="${src(p.image, 900)}" alt="${esc(p.alt || "")}" loading="lazy"></figure>`).join("")}
       <h2 class="sp-title" id="sp-h"><span class="sp-a">${esc(sp.title_a || "")}</span><span class="sp-b">${esc(sp.title_b || "")}</span></h2>
-      <span class="sp-cross c1"></span><span class="sp-cross c2"></span><span class="sp-cross c3"></span>
+      <div class="sp-grid sp-n${ph.length}">
+        ${ph.map((p, i) => `<figure class="sp-ph"><img src="${src(p.image, 900)}" alt="${esc(p.alt || "")}" loading="lazy"><figcaption class="mono">${String(i + 1).padStart(2, "0")}</figcaption></figure>`).join("")}
+      </div>
     </div>
     <div class="sp-foot"><p>${esc(sp.text || "")}</p>${sp.link ? `<a class="btn ghost" href="${esc(sp.link)}">${esc(sp.link_text || "Смотреть серию")} →</a>` : ""}</div>
   </div></section>`;
