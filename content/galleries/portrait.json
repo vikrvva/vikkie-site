@@ -45,7 +45,8 @@
                        "image":  "/images/portrait/ig-Ddof1n9jc2M-1.jpg",
                        "alt":  "Блондинка в чёрном в студии у окна",
                        "caption":  "",
-                       "featured":  true
+                       "featured":  true,
+                       "home":  "bottom"
                    },
                    {
                        "image":  "/images/portrait/ig-Deva5dTDToE-1.jpg",
@@ -69,7 +70,8 @@
                        "image":  "/images/portrait/ig-DaejvX0DSfG-1.jpg",
                        "alt":  "Крупный портрет с пирсингом и красными губами",
                        "caption":  "",
-                       "featured":  true
+                       "featured":  true,
+                       "home":  "top"
                    },
                    {
                        "image":  "/images/portrait/ig-DL9pb8Qt8O1-1.jpg",

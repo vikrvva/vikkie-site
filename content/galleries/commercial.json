@@ -74,7 +74,8 @@
                        "image":  "/images/commercial/event-party-3.jpg",
                        "alt":  "Ивент: четыре подруги позируют в ярких образах",
                        "caption":  "",
-                       "featured":  true
+                       "featured":  true,
+                       "home":  "top"
                    },
                    {
                        "image":  "/images/commercial/event-party-4.jpg",
